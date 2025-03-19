@@ -1,12 +1,12 @@
+
 import express from "express";
 import fetch from "node-fetch";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-    res.send("March Madness API Test");
-});
+// Serve static files
+app.use(express.static("."));
 
 // Endpoint to get live NCAA scoreboard
 app.get("/scoreboard", async (req, res) => {
@@ -22,5 +22,5 @@ app.get("/scoreboard", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
