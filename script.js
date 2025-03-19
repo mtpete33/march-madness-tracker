@@ -15,6 +15,7 @@ $(document).ready(function () {
                     const gameCard = `
                         <div class="game-card">
                             <h3>${gameData.title}</h3>
+                            <p><strong>Date:</strong> ${gameData.startDate}</p>
                             <p><strong>Round:</strong> ${gameData.bracketRound || "N/A"}</p>
                             <div class="team">
                                 <p>${awayTeam.names.full} (${awayTeam.seed})</p>
