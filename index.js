@@ -11,8 +11,13 @@ app.use(express.static("."));
 // Endpoint to get live NCAA scoreboard
 app.get("/scoreboard", async (req, res) => {
     try {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        
         const response = await fetch(
-            "https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/2024/03/19/scoreboard.json"
+            `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/${year}/${month}/${day}/scoreboard.json`
         );
         const data = await response.json();
         res.json(data);
