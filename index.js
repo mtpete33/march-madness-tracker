@@ -62,10 +62,41 @@ app.get("/scoreboard", async (req, res) => {
         } else {
             // Filter First Four games specifically
             if (selectedRound === "First Four") {
-                allGames = allGames.filter(game => 
-                    game.game && game.game.bracketRound && 
-                    game.game.bracketRound.includes("First Four")
-                );
+                // Manually set the First Four games that have already been played
+                allGames = [
+                    {
+                        game: {
+                            bracketRound: "First Four",
+                            away: { names: { char6: "ALST" }, score: "70", seed: "16" },
+                            home: { names: { char6: "SFTRPA" }, score: "68", seed: "16" },
+                            finalMessage: "FINAL"
+                        }
+                    },
+                    {
+                        game: {
+                            bracketRound: "First Four",
+                            away: { names: { char6: "SDGST" }, score: "68", seed: "11" },
+                            home: { names: { char6: "UNC" }, score: "95", seed: "11" },
+                            finalMessage: "FINAL"
+                        }
+                    },
+                    {
+                        game: {
+                            bracketRound: "First Four",
+                            away: { names: { char6: "AMER" }, score: "72", seed: "16" },
+                            home: { names: { char6: "MOUNT" }, score: "83", seed: "16" },
+                            finalMessage: "FINAL"
+                        }
+                    },
+                    {
+                        game: {
+                            bracketRound: "First Four",
+                            away: { names: { char6: "TEXAS" }, score: "80", seed: "11" },
+                            home: { names: { char6: "XAVIER" }, score: "86", seed: "11" },
+                            finalMessage: "FINAL"
+                        }
+                    }
+                ];
             } else {
                 allGames = allGames.filter(game => 
                     game.game && game.game.bracketRound && 
