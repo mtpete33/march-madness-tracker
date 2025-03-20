@@ -121,11 +121,11 @@
     }
   },
   "points_per_round": {
-    "First Round": 1,
-    "Second Round": 2,
-    "Sweet 16": 4,
-    "Elite Eight": 8,
-    "Final Four": 16,
-    "National Championship": 32
+    "First Round": 5,
+    "Second Round": 10,
+    "Sweet 16": 15,
+    "Elite Eight": 20,
+    "Final Four": 25,
+    "National Championship": 30
   }
 }
