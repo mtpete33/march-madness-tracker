@@ -1,10 +1,13 @@
 
 $(document).ready(function () {
     function fetchGames() {
+        console.log("Fetching games...");
         $("#games-container").html("<p>Loading games...</p>");
         const selectedRound = $("#roundSelector").val();
+        console.log("Selected round:", selectedRound);
 
         $.get("/scoreboard", { round: selectedRound }, function (data) {
+            console.log("Received data:", data);
             $("#games-container").empty();
 
             if (data.games && data.games.length > 0) {
