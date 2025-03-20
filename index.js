@@ -10,9 +10,9 @@ app.use(express.static("."));
 app.use(express.json());
 
 // Endpoint to update draft data
-app.post('/updateDraft', (req, res) => {
-    import fs from 'fs';
-    fs.writeFile('draft.json', JSON.stringify(req.body, null, 2), (err) => {
+app.post('/updateDraft', async (req, res) => {
+    const fs = await import('fs');
+    fs.default.writeFile('draft.json', JSON.stringify(req.body, null, 2), (err) => {
         if (err) {
             res.status(500).send('Error saving data');
             return;
