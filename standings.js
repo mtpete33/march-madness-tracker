@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     let eliminatedTeams = new Set();
     let teamWins = new Map();
@@ -21,7 +20,7 @@ $(document).ready(function() {
         Promise.all(promises).then(results => {
             eliminatedTeams.clear();
             teamWins.clear();
-            
+
             results.forEach(data => {
                 if (data.games) {
                     data.games.forEach(gameData => {
@@ -31,7 +30,7 @@ $(document).ready(function() {
                             const awayScore = parseInt(game.away.score);
                             const homeSeed = parseInt(game.home.seed);
                             const awaySeed = parseInt(game.away.seed);
-                            
+
                             if (homeScore > awayScore) {
                                 // Home team won
                                 eliminatedTeams.add(game.away.names.short);
@@ -73,7 +72,7 @@ $(document).ready(function() {
         $.getJSON('draft.json', function(data) {
             const container = $('#standings-container');
             container.empty();
-            
+
             // Calculate points for each member
             data.family_members.forEach(member => {
                 member.points = calculatePlayerPoints(member.teams);
@@ -81,7 +80,7 @@ $(document).ready(function() {
 
             // Sort by points (highest first)
             data.family_members.sort((a, b) => b.points - a.points);
-            
+
             data.family_members.forEach(member => {
                 const playerCard = $(`
                     <div class="player-card">
@@ -91,7 +90,7 @@ $(document).ready(function() {
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
                                 const winInfo = teamWins.get(team);
-                                const winStatus = winInfo ? `<span class="win-status">(Won ${winInfo.round}: +${winInfo.points}pts)</span>` : '';
+                                const winStatus = winInfo && winInfo.round !== "First Four" ? `<span class="win-status">(Won ${winInfo.round}: +${winInfo.points}pts)</span>` : '';
                                 return `<li class="${isEliminated ? 'eliminated' : ''}">${team} ${winStatus}</li>`;
                             }).join('')}
                         </ul>
