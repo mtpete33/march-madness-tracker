@@ -1,4 +1,3 @@
-
 import express from "express";
 import fetch from "node-fetch";
 
@@ -26,9 +25,9 @@ app.get("/scoreboard", async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
         const currentDate = new Date();
-        
+
         let allGames = [];
-        
+
         // If First Four is selected, fetch games from March 19 and 20
         if (selectedRound === "First Four") {
             console.log("Fetching First Four games...");
@@ -50,33 +49,31 @@ app.get("/scoreboard", async (req, res) => {
             }
             console.log("Total First Four games found:", allGames.length);
         } else {
-            
-            
-            //For other rounds, fetch current day's games UNCOMMENT THIS
-            const year = currentDate.getFullYear();
-            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-            const day = String(currentDate.getDate()).padStart(2, '0');
+            // For other rounds, fetch current and next day's games
+            const today = currentDate;
+            const tomorrow = new Date(currentDate);
+            tomorrow.setDate(tomorrow.getDate() + 1);
 
+            const dates = [today, tomorrow];
+            allGames = [];
 
+            for (const date of dates) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
 
-
-            
-            // Temporarily show tomorrow's data --comment this out
-            // const tomorrow = new Date(currentDate);
-            // tomorrow.setDate(tomorrow.getDate() + 1);
-            // const year = tomorrow.getFullYear();
-            // const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-            // const day = String(tomorrow.getDate()).padStart(2, '0');
-            // End comment this out
-
-
-
-            
-            const response = await fetch(
-                `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/${year}/${month}/${day}/scoreboard.json`
-            );
-            const data = await response.json();
-            allGames = data.games || [];
+                try {
+                    const response = await fetch(
+                        `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/${year}/${month}/${day}/scoreboard.json`
+                    );
+                    const data = await response.json();
+                    if (data.games) {
+                        allGames = [...allGames, ...data.games];
+                    }
+                } catch (error) {
+                    console.error(`Error fetching games for ${year}-${month}-${day}:`, error);
+                }
+            }
         }
 
         // Filter games by round and add placeholder games for future rounds
@@ -128,14 +125,14 @@ app.get("/scoreboard", async (req, res) => {
                     }
                 ];
             } else {
-                allGames = allGames.filter(game => 
-                    game.game && game.game.bracketRound && 
+                allGames = allGames.filter(game =>
+                    game.game && game.game.bracketRound &&
                     game.game.bracketRound === selectedRound
                 );
             }
             console.log(`Filtered ${allGames.length} games for ${selectedRound}`);
         }
-        
+
         res.json({ games: allGames });
     } catch (error) {
         res.status(500).json({ error: "Failed to fetch scoreboard" });
