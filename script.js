@@ -1,4 +1,17 @@
 
+function formatGameTime(startTime) {
+    if (!startTime) return '';
+    
+    const date = new Date(startTime);
+    const estOptions = { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' };
+    const mstOptions = { timeZone: 'America/Denver', hour: 'numeric', minute: '2-digit' };
+    
+    const estTime = date.toLocaleTimeString('en-US', estOptions);
+    const mstTime = date.toLocaleTimeString('en-US', mstOptions);
+    
+    return `${estTime} ET / ${mstTime} MT`;
+}
+
 $(document).ready(function () {
     function fetchGames() {
         $("#games-container").html("<p>Loading games...</p>");
@@ -23,7 +36,7 @@ $(document).ready(function () {
                                 <p>${homeTeam.names.full} (#${homeTeam.seed})</p>
                                 <p><strong>${homeTeam.score}</strong></p>
                             </div>
-                            <p><strong>${gameData.finalMessage || gameData.startTime}</strong></p>
+                            <p><strong>${gameData.finalMessage || formatGameTime(gameData.startTime)}</strong></p>
                         </div>
                     `;
 
