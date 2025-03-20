@@ -16,14 +16,18 @@ $(document).ready(function () {
                     const homeTeam = gameData.home;
                     const awayTeam = gameData.away;
 
+                    const awayScore = parseInt(awayTeam.score) || 0;
+                    const homeScore = parseInt(homeTeam.score) || 0;
+                    const hasScores = awayTeam.score !== "" && homeTeam.score !== "";
+                    
                     const gameCard = `
                         <div class="game-card">
                             <h3>${gameData.bracketRound || "March Madness"}</h3>
-                            <div class="team">
+                            <div class="team ${hasScores ? (awayScore > homeScore ? 'winning' : 'losing') : ''}">
                                 <p>${awayTeam.names.char6} <span class="seeds">(#${awayTeam.seed})</span></p>
                                 <p><strong>${awayTeam.score}</strong></p>
                             </div>
-                            <div class="team">
+                            <div class="team ${hasScores ? (homeScore > awayScore ? 'winning' : 'losing') : ''}">
                                 <p>${homeTeam.names.char6} <span class="seeds">(#${homeTeam.seed})</span></p>
                                 <p><strong>${homeTeam.score}</strong></p>
                             </div>

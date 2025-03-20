@@ -63,11 +63,21 @@ button:hover {
 }
 
 .team {
-  margin: 8px 0;
-  padding: 2px;
-  background: #c6e3ff;
-  border-radius: 4px;
-  border-left: 4px solid #007bff;
+    margin: 8px 0;
+    padding: 2px;
+    background: #c6e3ff;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+}
+
+.team.winning {
+    background: #e6ffe6;
+    border-left-color: #28a745;
+}
+
+.team.losing {
+    background: #ffe6e6;
+    border-left-color: #dc3545;
 }
 
 .game-card p {
