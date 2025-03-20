@@ -32,6 +32,7 @@ $(document).ready(function () {
                                 <p><strong>${homeTeam.score}</strong></p>
                             </div>
                             <p><strong>${gameData.finalMessage || gameData.startTime}</strong></p>
+                            ${gameData.contestClock ? `<p class="contest-clock">${gameData.currentPeriod} - ${gameData.contestClock}</p>` : ''}
                         </div>
                     `;
 
