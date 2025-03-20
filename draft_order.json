@@ -90,6 +90,276 @@
           "team_selected": "Clemson"
         }
       ]
+    },
+    {
+      "round": 3,
+      "picks": [
+        {
+          "pick_number": 17,
+          "drafter": "Chris",
+          "team_selected": "Louisville"
+        },
+        {
+          "pick_number": 18,
+          "drafter": "Cindy",
+          "team_selected": "Arizona"
+        },
+        {
+          "pick_number": 19,
+          "drafter": "Keigan",
+          "team_selected": "Texas A&M"
+        },
+        {
+          "pick_number": 20,
+          "drafter": "Tenn Johnny",
+          "team_selected": "Kansas"
+        },
+        {
+          "pick_number": 21,
+          "drafter": "Mike",
+          "team_selected": "Michigan"
+        },
+        {
+          "pick_number": 22,
+          "drafter": "Angie",
+          "team_selected": "Oregon"
+        },
+        {
+          "pick_number": 23,
+          "drafter": "Tom",
+          "team_selected": "Purdue"
+        },
+        {
+          "pick_number": 24,
+          "drafter": "Jake",
+          "team_selected": "Memphis"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "picks": [
+        {
+          "pick_number": 25,
+          "drafter": "Jake",
+          "team_selected": "Illinois"
+        },
+        {
+          "pick_number": 26,
+          "drafter": "Tom",
+          "team_selected": "Creighton"
+        },
+        {
+          "pick_number": 27,
+          "drafter": "Angie",
+          "team_selected": "Ole Miss"
+        },
+        {
+          "pick_number": 28,
+          "drafter": "Mike",
+          "team_selected": "Missouri"
+        },
+        {
+          "pick_number": 29,
+          "drafter": "Tenn Johnny",
+          "team_selected": "VCU"
+        },
+        {
+          "pick_number": 30,
+          "drafter": "Keigan",
+          "team_selected": "UConn"
+        },
+        {
+          "pick_number": 31,
+          "drafter": "Cindy",
+          "team_selected": "Marquette"
+        },
+        {
+          "pick_number": 32,
+          "drafter": "Chris",
+          "team_selected": "BYU"
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "picks": [
+        {
+          "pick_number": 33,
+          "drafter": "Chris",
+          "team_selected": "Saint Mary's (CA)"
+        },
+        {
+          "pick_number": 34,
+          "drafter": "Cindy",
+          "team_selected": "Georgia"
+        },
+        {
+          "pick_number": 35,
+          "drafter": "Keigan",
+          "team_selected": "UC San Diego"
+        },
+        {
+          "pick_number": 36,
+          "drafter": "Tenn Johnny",
+          "team_selected": "Liberty"
+        },
+        {
+          "pick_number": 37,
+          "drafter": "Mike",
+          "team_selected": "UCLA"
+        },
+        {
+          "pick_number": 38,
+          "drafter": "Angie",
+          "team_selected": "Oklahoma"
+        },
+        {
+          "pick_number": 39,
+          "drafter": "Tom",
+          "team_selected": "Mississippi St."
+        },
+        {
+          "pick_number": 40,
+          "drafter": "Jake",
+          "team_selected": "Drake"
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "picks": [
+        {
+          "pick_number": 41,
+          "drafter": "Jake",
+          "team_selected": "McNeese"
+        },
+        {
+          "pick_number": 42,
+          "drafter": "Tom",
+          "team_selected": "Utah St."
+        },
+        {
+          "pick_number": 43,
+          "drafter": "Angie",
+          "team_selected": "Baylor"
+        },
+        {
+          "pick_number": 44,
+          "drafter": "Mike",
+          "team_selected": "New Mexico"
+        },
+        {
+          "pick_number": 45,
+          "drafter": "Tenn Johnny",
+          "team_selected": "Xavier"
+        },
+        {
+          "pick_number": 46,
+          "drafter": "Keigan",
+          "team_selected": "Arkansas"
+        },
+        {
+          "pick_number": 47,
+          "drafter": "Cindy",
+          "team_selected": "Vanderbilt"
+        },
+        {
+          "pick_number": 48,
+          "drafter": "Chris",
+          "team_selected": "High Point"
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "picks": [
+        {
+          "pick_number": 49,
+          "drafter": "Chris",
+          "team_selected": "Akron"
+        },
+        {
+          "pick_number": 50,
+          "drafter": "Cindy",
+          "team_selected": "Yale"
+        },
+        {
+          "pick_number": 51,
+          "drafter": "Keigan",
+          "team_selected": "Lipscomb"
+        },
+        {
+          "pick_number": 52,
+          "drafter": "Tenn Johnny",
+          "team_selected": "UNC"
+        },
+        {
+          "pick_number": 53,
+          "drafter": "Mike",
+          "team_selected": "Grand Canyon"
+        },
+        {
+          "pick_number": 54,
+          "drafter": "Angie",
+          "team_selected": "Troy"
+        },
+        {
+          "pick_number": 55,
+          "drafter": "Tom",
+          "team_selected": "Bryant"
+        },
+        {
+          "pick_number": 56,
+          "drafter": "Jake",
+          "team_selected": "Montana"
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "picks": [
+        {
+          "pick_number": 57,
+          "drafter": "Jake",
+          "team_selected": "UNCW"
+        },
+        {
+          "pick_number": 58,
+          "drafter": "Tom",
+          "team_selected": "Alabama St."
+        },
+        {
+          "pick_number": 59,
+          "drafter": "Angie",
+          "team_selected": "Wofford"
+        },
+        {
+          "pick_number": 60,
+          "drafter": "Mike",
+          "team_selected": "Omaha"
+        },
+        {
+          "pick_number": 61,
+          "drafter": "Tenn Johnny",
+          "team_selected": "Robert Morris"
+        },
+        {
+          "pick_number": 62,
+          "drafter": "Keigan",
+          "team_selected": "SIUE"
+        },
+        {
+          "pick_number": 63,
+          "drafter": "Cindy",
+          "team_selected": "Mount St. Mary's"
+        },
+        {
+          "pick_number": 64,
+          "drafter": "Chris",
+          "team_selected": "Norfolk St."
+        }
+      ]
     }
   ],
   "draft_metadata": {
