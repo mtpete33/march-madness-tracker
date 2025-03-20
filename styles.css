@@ -22,18 +22,48 @@ button:hover {
   background-color: #0056b3;
 }
 
+#games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
 .game-card {
   background: white;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
+  padding: 15px;
+  width: 300px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.game-card h3 {
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+  color: #2c3e50;
 }
 
 .team {
-  margin: 10px 0;
-  padding: 10px;
-  background: #d4e9ff;
+  margin: 8px 0;
+  padding: 8px;
+  background: #f8f9fa;
   border-radius: 4px;
+  border-left: 4px solid #007bff;
+}
+
+.game-card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.game-card strong {
+  color: #2c3e50;
 }

@@ -14,19 +14,16 @@ $(document).ready(function () {
 
                     const gameCard = `
                         <div class="game-card">
-                            <h3>${gameData.title}</h3>
-                            <p><strong>Date:</strong> ${gameData.startDate}</p>
-                            <p><strong>Round:</strong> ${gameData.bracketRound || "N/A"}</p>
+                            <h3>${gameData.bracketRound || "March Madness"}</h3>
                             <div class="team">
-                                <p>${awayTeam.names.full} (${awayTeam.seed})</p>
-                                <p>Score: ${awayTeam.score}</p>
+                                <p>${awayTeam.names.full} (#${awayTeam.seed})</p>
+                                <p><strong>${awayTeam.score}</strong></p>
                             </div>
                             <div class="team">
-                                <p>${homeTeam.names.full} (${homeTeam.seed})</p>
-                                <p>Score: ${homeTeam.score}</p>
+                                <p>${homeTeam.names.full} (#${homeTeam.seed})</p>
+                                <p><strong>${homeTeam.score}</strong></p>
                             </div>
-                            <p><strong>Status:</strong> ${gameData.finalMessage}</p>
-                            <p><strong>Start Time:</strong> ${gameData.startTime}</p>
+                            <p><strong>${gameData.finalMessage || gameData.startTime}</strong></p>
                         </div>
                     `;
 
