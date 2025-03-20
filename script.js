@@ -2,8 +2,9 @@
 $(document).ready(function () {
     function fetchGames() {
         $("#games-container").html("<p>Loading games...</p>");
+        const selectedRound = $("#roundSelector").val();
 
-        $.get("/scoreboard", function (data) {
+        $.get("/scoreboard", { round: selectedRound }, function (data) {
             $("#games-container").empty();
 
             if (data.games && data.games.length > 0) {
@@ -40,8 +41,8 @@ $(document).ready(function () {
     // Initial load
     fetchGames();
 
-    // Refresh button
-    $("#refresh").click(function () {
+    // Refresh button and round selector
+    $("#refresh, #roundSelector").on("click change", function () {
         fetchGames();
     });
 });
