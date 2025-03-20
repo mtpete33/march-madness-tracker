@@ -31,8 +31,7 @@ $(document).ready(function () {
                                 <p>${homeTeam.names.char6} <span class="seeds">(#${homeTeam.seed})</span></p>
                                 <p><strong>${homeTeam.score}</strong></p>
                             </div>
-                            <p><strong>${gameData.finalMessage || gameData.startTime}</strong></p>
-                            ${gameData.contestClock ? `<p class="contest-clock">${gameData.currentPeriod} - ${gameData.contestClock}</p>` : ''}
+                            <p><strong>${gameData.contestClock ? `${gameData.currentPeriod} - ${gameData.contestClock}` : gameData.finalMessage || gameData.startTime}</strong></p>
                         </div>
                     `;
 
