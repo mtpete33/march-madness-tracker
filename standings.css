@@ -53,8 +53,8 @@ a:hover {
     font-size: 24px;
 
 .win-status {
-    font-size: 0.85em;
-    color: #007bff;
+    font-size: 0.85em !important;
+    color: #007bff !important;
 }
 
     color: #007bff;
