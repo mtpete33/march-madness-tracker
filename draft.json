@@ -16,7 +16,15 @@
     },
     {
       "name": "Cindy",
-      "teams": [],
+      "teams": [
+        "Florida",
+        "Kentucky",
+        "Arizona",
+        "Marquette",
+        "Georgia",
+        "Vanderbilt",
+        "Yale"
+      ],
       "points": 0
     },
     {
