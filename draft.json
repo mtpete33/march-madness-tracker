@@ -42,7 +42,13 @@
       "points": 0
     }
   ],
-  "teams": {},
+  "teams": {
+    "format_example": {
+      "char6": "DUKE",
+      "short": "Duke",
+      "full": "Duke University"
+    }
+  },
   "points_per_round": {
     "First Round": 1,
     "Second Round": 2,

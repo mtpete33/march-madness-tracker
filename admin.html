@@ -12,11 +12,13 @@
     <h1>Draft Management</h1>
     <div id="admin-container">
         <div class="member-section">
-            <select id="familyMemberSelect">
-                <option value="">Select Family Member</option>
-            </select>
-            <input type="text" id="teamInput" placeholder="Enter team name">
-            <button id="addTeam">Add Team</button>
+            <form id="teamForm">
+                <select id="familyMemberSelect" required>
+                    <option value="">Select Family Member</option>
+                </select>
+                <input type="text" id="teamInput" placeholder="Enter team name (e.g. DUKE, North Carolina)" required>
+                <button type="submit">Add Team</button>
+            </form>
         </div>
         <div id="assignments-container"></div>
     </div>

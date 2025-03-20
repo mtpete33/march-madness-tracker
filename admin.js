@@ -34,7 +34,8 @@ $(document).ready(function() {
     }
 
     // Add team to family member
-    $('#addTeam').click(function() {
+    $('#teamForm').submit(function(e) {
+        e.preventDefault();
         const memberName = $('#familyMemberSelect').val();
         const teamName = $('#teamInput').val().trim();
 
