@@ -23,38 +23,93 @@
         "Marquette",
         "Georgia",
         "Vanderbilt",
-        "Yale"
+        "Yale",
+        "Mount St. Mary's"
       ],
       "points": 0
     },
     {
       "name": "Keigan",
-      "teams": [],
+      "teams": [
+        "Auburn",
+        "Maryland",
+        "Texas A&M",
+        "UConn",
+        "UC San Diego",
+        "Arkansas",
+        "Lipscomb",
+        "SIUE"
+      ],
       "points": 0
     },
     {
       "name": "Tenn Johnny",
-      "teams": [],
+      "teams": [
+        "Michigan St.",
+        "Gonzaga",
+        "Kansas",
+        "VCU",
+        "Liberty",
+        "Xavier",
+        "UNC",
+        "Robert Morris"
+      ],
       "points": 0
     },
     {
       "name": "Mike",
-      "teams": [],
+      "teams": [
+        "Houston",
+        "Wisconsin",
+        "Michigan",
+        "Missouri",
+        "UCLA",
+        "New Mexico",
+        "Grand Canyon",
+        "Omaha"
+      ],
       "points": 0
     },
     {
       "name": "Angie",
-      "teams": [],
+      "teams": [
+        "Tennessee",
+        "Texas Tech",
+        "Oregon",
+        "Ole Miss",
+        "Oklahoma",
+        "Baylor",
+        "Troy",
+        "Wofford"
+      ],
       "points": 0
     },
     {
       "name": "Tom",
-      "teams": [],
+      "teams": [
+        "St. John's (NY)",
+        "Colorado St.",
+        "Purdue",
+        "Creighton",
+        "Mississippi St.",
+        "Utah St.",
+        "Bryant",
+        "Alabama St."
+      ],
       "points": 0
     },
     {
       "name": "Jake",
-      "teams": [],
+      "teams": [
+        "Alabama",
+        "Iowa St.",
+        "Memphis",
+        "Illinois",
+        "Drake",
+        "McNeese",
+        "Montana",
+        "UNCW"
+      ],
       "points": 0
     }
   ],
