@@ -76,6 +76,42 @@ app.get("/scoreboard", async (req, res) => {
             }
         }
 
+        // Add First Four games to all responses
+        const firstFourGames = [
+            {
+                game: {
+                    bracketRound: "First Four",
+                    away: { names: { char6: "ALST" }, score: "70", seed: "16" },
+                    home: { names: { char6: "SFTRPA" }, score: "68", seed: "16" },
+                    finalMessage: "FINAL"
+                }
+            },
+            {
+                game: {
+                    bracketRound: "First Four",
+                    away: { names: { char6: "SDGST" }, score: "68", seed: "11" },
+                    home: { names: { char6: "UNC" }, score: "95", seed: "11" },
+                    finalMessage: "FINAL"
+                }
+            },
+            {
+                game: {
+                    bracketRound: "First Four",
+                    away: { names: { char6: "AMER" }, score: "72", seed: "16" },
+                    home: { names: { char6: "MOUNT" }, score: "83", seed: "16" },
+                    finalMessage: "FINAL"
+                }
+            },
+            {
+                game: {
+                    bracketRound: "First Four",
+                    away: { names: { char6: "TEXAS" }, score: "80", seed: "11" },
+                    home: { names: { char6: "XAVIER" }, score: "86", seed: "11" },
+                    finalMessage: "FINAL"
+                }
+            }
+        ];
+
         // Filter games by round and add placeholder games for future rounds
         if (selectedRound !== "First Round" && selectedRound !== "First Four") {
             allGames = [{
@@ -87,48 +123,9 @@ app.get("/scoreboard", async (req, res) => {
                 }
             }];
         } else {
-            // Filter First Four games specifically
-            if (selectedRound === "First Four") {
-                // Manually set the First Four games that have already been played
-                allGames = [
-                    {
-                        game: {
-                            bracketRound: "First Four",
-                            away: { names: { char6: "ALST" }, score: "70", seed: "16" },
-                            home: { names: { char6: "SFTRPA" }, score: "68", seed: "16" },
-                            finalMessage: "FINAL"
-                        }
-                    },
-                    {
-                        game: {
-                            bracketRound: "First Four",
-                            away: { names: { char6: "SDGST" }, score: "68", seed: "11" },
-                            home: { names: { char6: "UNC" }, score: "95", seed: "11" },
-                            finalMessage: "FINAL"
-                        }
-                    },
-                    {
-                        game: {
-                            bracketRound: "First Four",
-                            away: { names: { char6: "AMER" }, score: "72", seed: "16" },
-                            home: { names: { char6: "MOUNT" }, score: "83", seed: "16" },
-                            finalMessage: "FINAL"
-                        }
-                    },
-                    {
-                        game: {
-                            bracketRound: "First Four",
-                            away: { names: { char6: "TEXAS" }, score: "80", seed: "11" },
-                            home: { names: { char6: "XAVIER" }, score: "86", seed: "11" },
-                            finalMessage: "FINAL"
-                        }
-                    }
-                ];
-            } else {
-                // Don't filter the data returned by the endpoint
-                // This way the UI still filters by selectedRound but the endpoint returns everything
-                console.log(`Found ${allGames.length} games total`);
-            }
+            // Include First Four games with the response
+            allGames = [...firstFourGames, ...allGames];
+            console.log(`Found ${allGames.length} games total (including First Four)`);
         }
 
         res.json({ games: allGames });
