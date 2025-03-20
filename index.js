@@ -50,10 +50,27 @@ app.get("/scoreboard", async (req, res) => {
             }
             console.log("Total First Four games found:", allGames.length);
         } else {
-            // For other rounds, fetch current day's games
+            
+            
+            //For other rounds, fetch current day's games UNCOMMENT THIS
             const year = currentDate.getFullYear();
             const month = String(currentDate.getMonth() + 1).padStart(2, '0');
             const day = String(currentDate.getDate()).padStart(2, '0');
+
+
+
+
+            
+            // Temporarily show tomorrow's data --comment this out
+            // const tomorrow = new Date(currentDate);
+            // tomorrow.setDate(tomorrow.getDate() + 1);
+            // const year = tomorrow.getFullYear();
+            // const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            // const day = String(tomorrow.getDate()).padStart(2, '0');
+            // End comment this out
+
+
+
             
             const response = await fetch(
                 `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/${year}/${month}/${day}/scoreboard.json`
