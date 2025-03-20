@@ -12,9 +12,9 @@ channel = "stable-24_05"
 language = "nodejs"
 
 [deployment]
-run = ["node", "index.js"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
+run = ["sh", "-c", "node index.js"]
 
 [workflows]
 runButton = "Run"

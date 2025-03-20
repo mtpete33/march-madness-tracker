@@ -12,6 +12,9 @@ body {
 h1 {
     color: #333;
 }
+a {
+    text-decoration: none;
+}
 
 button {
     padding: 10px 20px;
