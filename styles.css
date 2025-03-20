@@ -29,7 +29,7 @@ button {
   border: none;
   cursor: pointer;
   font-size: 18px;
-  border-radius: 18px;
+  /* border-radius: 18px; */
 }
 
 button:hover {

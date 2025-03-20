@@ -92,7 +92,7 @@ button {
   font-size: 18px;
   padding: 10px 20px;
   margin: 0 10px 20px 10px;
-  border-radius: 18px;
+  /* border-radius: 18px; */
 }
 button:hover {
   background-color: #0056b3;
