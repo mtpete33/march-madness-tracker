@@ -60,9 +60,19 @@ app.get("/scoreboard", async (req, res) => {
                 }
             }];
         } else {
-            allGames = allGames.filter(game => 
-                game.game.bracketRound === selectedRound
-            );
+            // Filter First Four games specifically
+            if (selectedRound === "First Four") {
+                allGames = allGames.filter(game => 
+                    game.game && game.game.bracketRound && 
+                    game.game.bracketRound.includes("First Four")
+                );
+            } else {
+                allGames = allGames.filter(game => 
+                    game.game && game.game.bracketRound && 
+                    game.game.bracketRound === selectedRound
+                );
+            }
+            console.log(`Filtered ${allGames.length} games for ${selectedRound}`);
         }
         
         res.json({ games: allGames });
