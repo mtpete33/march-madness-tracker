@@ -3,10 +3,12 @@ body {
   background-color: #d8eeff;
   text-align: center;
   padding: 15px;
+  font-size: 19px;
 }
 
 h1 {
   color: #333;
+  margin-top: 0;
 }
 
 select, button {
@@ -26,7 +28,8 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  border-radius: 18px;
 }
 
 button:hover {
@@ -57,7 +60,7 @@ button:hover {
 }
 
 .game-card.live-game {
-  border: 2px solid black;
+  border: 3px solid black;
 }
 
 .game-card h3 {
@@ -136,4 +139,13 @@ button:hover {
 .member-teams h3 {
   margin: 0 0 10px 0;
   color: #333;
+}
+
+@media (max-width: 470px) {
+  #roundSelector {
+    margin-bottom: 5px;
+  }
+  #games-container {
+    margin-top: 0px;
+  }
 }

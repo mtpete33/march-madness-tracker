@@ -11,6 +11,7 @@ body {
 
 h1 {
     color: #333;
+    margin-top: 0;
 }
 a {
     text-decoration: none;
@@ -23,7 +24,8 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
+    border-radius: 18px;
 }
 
 button:hover {
