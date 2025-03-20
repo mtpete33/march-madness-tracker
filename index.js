@@ -125,12 +125,10 @@ app.get("/scoreboard", async (req, res) => {
                     }
                 ];
             } else {
-                allGames = allGames.filter(game =>
-                    game.game && game.game.bracketRound &&
-                    game.game.bracketRound === selectedRound
-                );
+                // Don't filter the data returned by the endpoint
+                // This way the UI still filters by selectedRound but the endpoint returns everything
+                console.log(`Found ${allGames.length} games total`);
             }
-            console.log(`Filtered ${allGames.length} games for ${selectedRound}`);
         }
 
         res.json({ games: allGames });
