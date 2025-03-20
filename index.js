@@ -7,6 +7,19 @@ const PORT = process.env.PORT || 3000;
 
 // Serve static files
 app.use(express.static("."));
+app.use(express.json());
+
+// Endpoint to update draft data
+app.post('/updateDraft', (req, res) => {
+    const fs = require('fs');
+    fs.writeFile('draft.json', JSON.stringify(req.body, null, 2), (err) => {
+        if (err) {
+            res.status(500).send('Error saving data');
+            return;
+        }
+        res.send('Success');
+    });
+});
 
 // Endpoint to get live NCAA scoreboard
 app.get("/scoreboard", async (req, res) => {
