@@ -51,7 +51,7 @@ app.get("/scoreboard", async (req, res) => {
 
         // Filter games by round and add placeholder games for future rounds
         if (selectedRound !== "First Round" && selectedRound !== "First Four") {
-            data.games = [{
+            allGames = [{
                 game: {
                     bracketRound: selectedRound,
                     home: { names: { char6: "TBD" }, seed: "--", score: "" },
