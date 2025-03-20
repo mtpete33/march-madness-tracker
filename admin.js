@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     let draftData = {};
 
@@ -51,7 +50,7 @@ $(document).ready(function() {
         }
 
         member.teams.push(teamName);
-        
+
         // Save updated data
         $.ajax({
             url: '/updateDraft',
