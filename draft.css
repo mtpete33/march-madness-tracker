@@ -73,19 +73,39 @@ button:hover {
 }
 
 @media (max-width: 420px) {
-    .round-container {
-        padding: 7px 15px;
-        width: 285px;
-        margin: 20px auto;
-        font-size:19px;
+    body {
+        padding: 10px;
+        font-size: 16px;
     }
+    
+    .round-container {
+        padding: 10px;
+        width: 100%;
+        max-width: 320px;
+        margin: 15px auto;
+    }
+    
     .pick {
-        grid-template-columns: 15px 115px 200px;
+        grid-template-columns: 25px 1fr 1fr;
+        gap: 5px;
+        padding: 6px;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 200px;
+        margin: 8px auto;
+        display: block;
     }
 }
 
 @media (max-width: 600px) {
+    .round-container {
+        max-width: 400px;
+    }
+    
     .pick {
-        grid-template-columns: 20px 115px 200px;
+        grid-template-columns: 30px 1fr 1fr;
+        gap: 8px;
     }
 }
