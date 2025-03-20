@@ -21,7 +21,7 @@ $(document).ready(function () {
                     const hasScores = awayTeam.score !== "" && homeTeam.score !== "";
                     
                     const gameCard = `
-                        <div class="game-card">
+                        <div class="game-card${gameData.gameState === "live" ? " live-game" : ""}">
                             <h3>${gameData.bracketRound || "March Madness"}</h3>
                             <div class="team ${hasScores ? (awayScore > homeScore ? 'winning' : 'losing') : ''}">
                                 <p>${awayTeam.names.char6} <span class="seeds">(#${awayTeam.seed})</span></p>
