@@ -1,9 +1,13 @@
-
 {
   "family_members": [
     {
       "name": "Chris",
-      "teams": [],
+      "teams": [
+        "Duke",
+        "Clemson",
+        "Louisville",
+        "BYU"
+      ],
       "points": 0
     },
     {
