@@ -20,9 +20,16 @@ $(document).ready(function () {
                     const homeScore = parseInt(homeTeam.score) || 0;
                     const hasScores = awayTeam.score !== "" && homeTeam.score !== "";
                     
+                    // Format date from YYYY-MM-DD to MM/DD/YY
+                    const dateStr = gameData.startDate ? new Date(gameData.startDate).toLocaleDateString('en-US', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        year: '2-digit'
+                    }) : '';
+
                     const gameCard = `
                         <div class="game-card${gameData.gameState === "live" ? " live-game" : ""}">
-                            <h3>${gameData.bracketRound || "March Madness"}</h3>
+                            <h3>${gameData.bracketRound || "March Madness"} - ${dateStr}</h3>
                             <div class="team ${hasScores ? (awayScore > homeScore ? 'winning' : 'losing') : ''}">
                                 <p>${awayTeam.names.char6} <span class="seeds">(#${awayTeam.seed})</span></p>
                                 <p><strong>${awayTeam.score}</strong></p>
