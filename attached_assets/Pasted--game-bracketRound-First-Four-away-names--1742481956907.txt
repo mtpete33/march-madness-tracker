@@ -1,0 +1,98 @@
+      "game": {
+        "bracketRound": "First Four",
+        "away": {
+          "names": {
+            "char6": "AMER"
+          },
+          "score": "72",
+          "seed": "16"
+        },
+        "home": {
+          "names": {
+            "char6": "MOUNT"
+          },
+          "score": "83",
+          "seed": "16"
+        },
+        "finalMessage": "FINAL"
+      }
+    },
+    {
+      "game": {
+        "bracketRound": "First Four",
+        "away": {
+          "names": {
+            "char6": "TEXAS"
+          },
+          "score": "80",
+          "seed": "11"
+        },
+        "home": {
+          "names": {
+            "char6": "XAVIER"
+          },
+          "score": "86",
+          "seed": "11"
+        },
+        "finalMessage": "FINAL"
+      }
+    },
+    {
+      "game": {
+        "gameID": "2640423",
+        "away": {
+          "score": "",
+          "names": {
+            "char6": "CREIGH",
+            "short": "Creighton",
+            "seo": "creighton",
+            "full": "Creighton University"
+          },
+          "winner": false,
+          "seed": "9",
+          "description": "(24-10)",
+          "rank": "",
+          "conferences": [
+            {
+              "conferenceName": "Big East",
+              "conferenceSeo": "big-east"
+            }
+          ]
+        },
+        "finalMessage": "",
+        "bracketRound": "First Round",
+        "title": "Louisville Creighton",
+        "contestName": "",
+        "url": "/game/6384683",
+        "network": "CBS",
+        "home": {
+          "score": "",
+          "names": {
+            "char6": "LOUIS",
+            "short": "Louisville",
+            "seo": "louisville",
+            "full": "University of Louisville"
+          },
+          "winner": false,
+          "seed": "8",
+          "description": "(27-7)",
+          "rank": "",
+          "conferences": [
+            {
+              "conferenceName": "ACC",
+              "conferenceSeo": "acc"
+            }
+          ]
+        },
+        "liveVideoEnabled": true,
+        "startTime": "12:15PM ET",
+        "startTimeEpoch": "1742487300",
+        "bracketId": "202",
+        "gameState": "pre",
+        "startDate": "03-20-2025",
+        "currentPeriod": "",
+        "videoState": "pre",
+        "bracketRegion": "South",
+        "contestClock": ""
+      }
+    },
