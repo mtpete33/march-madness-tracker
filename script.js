@@ -16,11 +16,11 @@ $(document).ready(function () {
                         <div class="game-card">
                             <h3>${gameData.bracketRound || "March Madness"}</h3>
                             <div class="team">
-                                <p>${awayTeam.names.char6} (#${awayTeam.seed})</p>
+                                <p>${awayTeam.names.char6} <span class="seeds">(#${awayTeam.seed})</span></p>
                                 <p><strong>${awayTeam.score}</strong></p>
                             </div>
                             <div class="team">
-                                <p>${homeTeam.names.char6} (#${homeTeam.seed})</p>
+                                <p>${homeTeam.names.char6} <span class="seeds">(#${homeTeam.seed})</span></p>
                                 <p><strong>${homeTeam.score}</strong></p>
                             </div>
                             <p><strong>${gameData.finalMessage || gameData.startTime}</strong></p>

@@ -67,3 +67,8 @@ button:hover {
 .game-card strong {
   color: #2c3e50;
 }
+
+.seeds {
+  font-size: 0.8rem;
+  color: #999;
+}
