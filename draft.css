@@ -1,9 +1,12 @@
 
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
     text-align: center;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
     padding: 15px;
+    font-family: Calibri, Arial, sans-serif;
+    background-color: #d8eeff;
+    font-size: 19px;
 }
 
 h1 {
@@ -17,7 +20,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 button:hover {
@@ -26,7 +29,7 @@ button:hover {
 
 .round-container {
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 500px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -43,7 +46,7 @@ button:hover {
 
 .pick {
     display: grid;
-    grid-template-columns: 50px 150px 200px;
+    grid-template-columns: 45px 145px 200px;
     gap: 10px;
     align-items: center;
     padding: 8px;
@@ -67,4 +70,22 @@ button:hover {
 .team {
     text-align: left;
     color: #444;
+}
+
+@media (max-width: 420px) {
+    .round-container {
+        padding: 7px 15px;
+        width: 285px;
+        margin: 20px auto;
+        font-size:19px;
+    }
+    .pick {
+        grid-template-columns: 15px 115px 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pick {
+        grid-template-columns: 20px 115px 200px;
+    }
 }
