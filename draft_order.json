@@ -1,0 +1,108 @@
+
+{
+  "draft_order": [
+    {
+      "round": 1,
+      "picks": [
+        {
+          "pick_number": 1,
+          "drafter": "Chris",
+          "team_selected": "Duke"
+        },
+        {
+          "pick_number": 2,
+          "drafter": "Cindy",
+          "team_selected": "Florida"
+        },
+        {
+          "pick_number": 3,
+          "drafter": "Keigan",
+          "team_selected": "Auburn"
+        },
+        {
+          "pick_number": 4,
+          "drafter": "Tenn Johnny",
+          "team_selected": "Michigan St."
+        },
+        {
+          "pick_number": 5,
+          "drafter": "Mike",
+          "team_selected": "Houston"
+        },
+        {
+          "pick_number": 6,
+          "drafter": "Angie",
+          "team_selected": "Tennessee"
+        },
+        {
+          "pick_number": 7,
+          "drafter": "Tom",
+          "team_selected": "St. John's (NY)"
+        },
+        {
+          "pick_number": 8,
+          "drafter": "Jake",
+          "team_selected": "Alabama"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "picks": [
+        {
+          "pick_number": 9,
+          "drafter": "Jake",
+          "team_selected": "Iowa St."
+        },
+        {
+          "pick_number": 10,
+          "drafter": "Tom",
+          "team_selected": "Colorado St."
+        },
+        {
+          "pick_number": 11,
+          "drafter": "Angie",
+          "team_selected": "Texas Tech"
+        },
+        {
+          "pick_number": 12,
+          "drafter": "Mike",
+          "team_selected": "Wisconsin"
+        },
+        {
+          "pick_number": 13,
+          "drafter": "Tenn Johnny",
+          "team_selected": "Gonzaga"
+        },
+        {
+          "pick_number": 14,
+          "drafter": "Keigan",
+          "team_selected": "Maryland"
+        },
+        {
+          "pick_number": 15,
+          "drafter": "Cindy",
+          "team_selected": "Kentucky"
+        },
+        {
+          "pick_number": 16,
+          "drafter": "Chris",
+          "team_selected": "Clemson"
+        }
+      ]
+    }
+  ],
+  "draft_metadata": {
+    "total_rounds": 8,
+    "participants": [
+      "Chris",
+      "Cindy", 
+      "Keigan",
+      "Tenn Johnny",
+      "Mike",
+      "Angie",
+      "Tom",
+      "Jake"
+    ]
+  }
+}
