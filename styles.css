@@ -64,8 +64,8 @@ button:hover {
 
 .team {
   margin: 8px 0;
-  padding: 8px;
-  background: #f8f9fa;
+  padding: 2px;
+  background: #c6e3ff;
   border-radius: 4px;
   border-left: 4px solid #007bff;
 }
@@ -76,12 +76,12 @@ button:hover {
 }
 
 .game-card strong {
-  color: #2c3e50;
+  color: #292929;
 }
 
 .seeds {
   font-size: 0.8rem;
-  color: #999;
+  color: #555555;
 }
 
 /* Admin Panel Styles */
