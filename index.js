@@ -76,7 +76,6 @@ app.get("/scoreboard", async (req, res) => {
             }
         }
 
-        // Add First Four games to all responses
         const firstFourGames = [
             {
                 game: {
@@ -216,8 +215,10 @@ app.get("/scoreboard", async (req, res) => {
             }
         ];
 
-        // Filter games by round and add placeholder games for future rounds
-        if (selectedRound !== "First Round" && selectedRound !== "First Four") {
+        // Filter games based on selected round
+        if (selectedRound === "First Four") {
+            allGames = firstFourGames;
+        } else if (selectedRound !== "First Round") {
             allGames = [{
                 game: {
                     bracketRound: selectedRound,
@@ -226,10 +227,6 @@ app.get("/scoreboard", async (req, res) => {
                     startTime: "TBD"
                 }
             }];
-        } else {
-            // Include First Four games with the response
-            allGames = [...firstFourGames, ...allGames];
-            console.log(`Found ${allGames.length} games total (including First Four)`);
         }
 
         res.json({ games: allGames });
