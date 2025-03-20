@@ -1,0 +1,64 @@
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#standings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.player-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.player-card h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.points {
+    font-size: 24px;
+    color: #007bff;
+    margin: 15px 0;
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+}
+
+.team-list li {
+    padding: 8px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #007bff;
+}
