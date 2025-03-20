@@ -1,0 +1,54 @@
+
+{
+  "family_members": [
+    {
+      "name": "Chris",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Cindy",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Keigan",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Tenn Johnny",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Mike",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Angie",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Tom",
+      "teams": [],
+      "points": 0
+    },
+    {
+      "name": "Jake",
+      "teams": [],
+      "points": 0
+    }
+  ],
+  "teams": {},
+  "points_per_round": {
+    "First Round": 1,
+    "Second Round": 2,
+    "Sweet 16": 4,
+    "Elite Eight": 8,
+    "Final Four": 16,
+    "National Championship": 32
+  }
+}
