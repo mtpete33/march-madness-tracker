@@ -91,8 +91,8 @@ $(document).ready(function() {
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
                                 const winInfo = teamWins.get(team);
-                                const winStatus = winInfo ? ` (Won ${winInfo.round}: +${winInfo.points}pts)` : '';
-                                return `<li class="${isEliminated ? 'eliminated' : ''}">${team}${winStatus}</li>`;
+                                const winStatus = winInfo ? `<span class="win-status">(Won ${winInfo.round}: +${winInfo.points}pts)</span>` : '';
+                                return `<li class="${isEliminated ? 'eliminated' : ''}">${team} ${winStatus}</li>`;
                             }).join('')}
                         </ul>
                     </div>
