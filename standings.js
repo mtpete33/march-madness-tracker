@@ -35,7 +35,7 @@ $(document).ready(function() {
                             if (homeScore > awayScore) {
                                 // Home team won
                                 eliminatedTeams.add(game.away.names.short);
-                                let upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
+                                let upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
                                 let totalPoints = roundPoints[game.bracketRound] || 0;
                                 teamWins.set(game.home.names.short, {
                                     round: game.bracketRound,
@@ -44,7 +44,7 @@ $(document).ready(function() {
                             } else if (awayScore > homeScore) {
                                 // Away team won
                                 eliminatedTeams.add(game.home.names.short);
-                                let upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
+                                let upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
                                 let totalPoints = roundPoints[game.bracketRound] || 0;
                                 teamWins.set(game.away.names.short, {
                                     round: game.bracketRound,
