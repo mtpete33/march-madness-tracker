@@ -8,11 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>March Madness Scoreboard</h1>
+    <h1>Peterson 8x8</h1>
     <nav>
-        <a href="admin.html">Admin Panel</a> |
-        <a href="standings.html">View Standings</a>
+        <!-- <a href="admin.html">Admin Panel</a> -->
+        <a href="standings.html"><button>View Standings</button></a>
     </nav>
+    
+    <h3>NCAA March Madness Live Scores</h3>
+    <button id="refresh">Refresh Scores</button>
     <select id="roundSelector">
         <option value="First Four">First Four</option>
         <option value="First Round" selected>First Round</option>
@@ -23,7 +26,6 @@
         <option value="Final Four">Final Four</option>
         <option value="National Championship">National Championship</option>
     </select>
-    <button id="refresh">Refresh Scores</button>
     <div id="games-container"></div>
 
     <script src="script.js"></script>
