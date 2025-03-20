@@ -80,34 +80,138 @@ app.get("/scoreboard", async (req, res) => {
         const firstFourGames = [
             {
                 game: {
+                    gameID: "2427528",
                     bracketRound: "First Four",
-                    away: { names: { char6: "ALST" }, score: "70", seed: "16" },
-                    home: { names: { char6: "SFTRPA" }, score: "68", seed: "16" },
-                    finalMessage: "FINAL"
+                    away: {
+                        names: {
+                            char6: "ALST",
+                            short: "Alabama St.",
+                            seo: "alabama-st",
+                            full: "Alabama State University"
+                        },
+                        score: "70",
+                        seed: "16",
+                        description: "(15-17)",
+                        conferences: [{ conferenceName: "SWAC", conferenceSeo: "swac" }]
+                    },
+                    home: {
+                        names: {
+                            char6: "SFTRPA",
+                            short: "SF Austin",
+                            seo: "sf-austin",
+                            full: "Stephen F. Austin State University"
+                        },
+                        score: "68",
+                        seed: "16",
+                        description: "(19-11)",
+                        conferences: [{ conferenceName: "WAC", conferenceSeo: "wac" }]
+                    },
+                    finalMessage: "FINAL",
+                    title: "Alabama St. vs SF Austin",
+                    network: "truTV",
+                    bracketRegion: "East"
                 }
             },
             {
                 game: {
+                    gameID: "2427529",
                     bracketRound: "First Four",
-                    away: { names: { char6: "SDGST" }, score: "68", seed: "11" },
-                    home: { names: { char6: "UNC" }, score: "95", seed: "11" },
-                    finalMessage: "FINAL"
+                    away: {
+                        names: {
+                            char6: "SDGST",
+                            short: "San Diego St.",
+                            seo: "san-diego-st",
+                            full: "San Diego State University"
+                        },
+                        score: "68",
+                        seed: "11",
+                        description: "(21-10)",
+                        conferences: [{ conferenceName: "Mountain West", conferenceSeo: "mwc" }]
+                    },
+                    home: {
+                        names: {
+                            char6: "UNC",
+                            short: "UNC",
+                            seo: "unc",
+                            full: "University of North Carolina"
+                        },
+                        score: "95",
+                        seed: "11",
+                        description: "(20-12)",
+                        conferences: [{ conferenceName: "ACC", conferenceSeo: "acc" }]
+                    },
+                    finalMessage: "FINAL",
+                    title: "San Diego St. vs UNC",
+                    network: "truTV",
+                    bracketRegion: "South"
                 }
             },
             {
                 game: {
+                    gameID: "2427530",
                     bracketRound: "First Four",
-                    away: { names: { char6: "AMER" }, score: "72", seed: "16" },
-                    home: { names: { char6: "MOUNT" }, score: "83", seed: "16" },
-                    finalMessage: "FINAL"
+                    away: {
+                        names: {
+                            char6: "AMER",
+                            short: "American",
+                            seo: "american",
+                            full: "American University"
+                        },
+                        score: "72",
+                        seed: "16",
+                        description: "(18-14)",
+                        conferences: [{ conferenceName: "Patriot", conferenceSeo: "patriot" }]
+                    },
+                    home: {
+                        names: {
+                            char6: "MOUNT",
+                            short: "Mount St. Mary's",
+                            seo: "mount-st-marys",
+                            full: "Mount St. Mary's University"
+                        },
+                        score: "83",
+                        seed: "16",
+                        description: "(19-13)",
+                        conferences: [{ conferenceName: "MAAC", conferenceSeo: "maac" }]
+                    },
+                    finalMessage: "FINAL",
+                    title: "American vs Mount St. Mary's",
+                    network: "truTV",
+                    bracketRegion: "West"
                 }
             },
             {
                 game: {
+                    gameID: "2427531",
                     bracketRound: "First Four",
-                    away: { names: { char6: "TEXAS" }, score: "80", seed: "11" },
-                    home: { names: { char6: "XAVIER" }, score: "86", seed: "11" },
-                    finalMessage: "FINAL"
+                    away: {
+                        names: {
+                            char6: "TEXAS",
+                            short: "Texas A&M-CC",
+                            seo: "texas-am-cc",
+                            full: "Texas A&M University-Corpus Christi"
+                        },
+                        score: "80",
+                        seed: "11",
+                        description: "(23-10)",
+                        conferences: [{ conferenceName: "Southland", conferenceSeo: "southland" }]
+                    },
+                    home: {
+                        names: {
+                            char6: "XAVIER",
+                            short: "Xavier",
+                            seo: "xavier",
+                            full: "Xavier University"
+                        },
+                        score: "86",
+                        seed: "11",
+                        description: "(22-9)",
+                        conferences: [{ conferenceName: "Big East", conferenceSeo: "big-east" }]
+                    },
+                    finalMessage: "FINAL",
+                    title: "Texas A&M-CC vs Xavier",
+                    network: "truTV",
+                    bracketRegion: "Midwest"
                 }
             }
         ];
