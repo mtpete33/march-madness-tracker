@@ -20,12 +20,10 @@ $(document).ready(function () {
                     const homeScore = parseInt(homeTeam.score) || 0;
                     const hasScores = awayTeam.score !== "" && homeTeam.score !== "";
                     
-                    // Format date from YYYY-MM-DD to MM/DD/YY
-                    const dateStr = gameData.startDate ? new Date(gameData.startDate).toLocaleDateString('en-US', {
-                        month: '2-digit',
-                        day: '2-digit',
-                        year: '2-digit'
-                    }) : '';
+                    // Format date from MM-DD-YYYY to MM/DD/YY
+                    const dateStr = gameData.startDate ? 
+                        gameData.startDate.split('-').slice(0, 2).join('/') + '/' + 
+                        gameData.startDate.split('-')[2].substring(2) : '';
 
                     const gameCard = `
                         <div class="game-card${gameData.gameState === "live" ? " live-game" : ""}">
