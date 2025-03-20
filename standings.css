@@ -67,6 +67,16 @@ a:hover {
     align-items: center;
 }
 
+.team-list li.winning {
+    background: #e6ffe6;
+    border-left-color: #28a745;
+}
+
+.team-list li.losing {
+    background: #ffe6e6;
+    border-left-color: #dc3545;
+}
+
 .team-list li.eliminated {
     background: #ffe6e6;
     border-left-color: #dc3545;

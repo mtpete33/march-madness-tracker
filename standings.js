@@ -39,7 +39,13 @@ $(document).ready(function() {
                                 let totalPoints = roundPoints[game.bracketRound] || 0;
                                 teamWins.set(game.home.names.short, {
                                     round: game.bracketRound,
-                                    points: totalPoints + upsetPoints
+                                    points: totalPoints + upsetPoints,
+                                    isWinning: true
+                                });
+                                teamWins.set(game.away.names.short, {
+                                    round: game.bracketRound,
+                                    points: 0,
+                                    isWinning: false
                                 });
                             } else if (awayScore > homeScore) {
                                 // Away team won
@@ -48,7 +54,13 @@ $(document).ready(function() {
                                 let totalPoints = roundPoints[game.bracketRound] || 0;
                                 teamWins.set(game.away.names.short, {
                                     round: game.bracketRound,
-                                    points: totalPoints + upsetPoints
+                                    points: totalPoints + upsetPoints,
+                                    isWinning: true
+                                });
+                                teamWins.set(game.home.names.short, {
+                                    round: game.bracketRound,
+                                    points: 0,
+                                    isWinning: false
                                 });
                             }
                         }
@@ -91,8 +103,9 @@ $(document).ready(function() {
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
                                 const winInfo = teamWins.get(team);
-                                const winStatus = winInfo ? ` (Won ${winInfo.round}: +${winInfo.points}pts)` : '';
-                                return `<li class="${isEliminated ? 'eliminated' : ''}">${team}${winStatus}</li>`;
+                                const winStatus = winInfo && winInfo.points > 0 ? ` (Won ${winInfo.round}: +${winInfo.points}pts)` : '';
+                                const statusClass = winInfo ? (winInfo.isWinning ? 'winning' : 'losing') : '';
+                                return `<li class="${isEliminated ? 'eliminated' : ''} ${statusClass}">${team}${winStatus}</li>`;
                             }).join('')}
                         </ul>
                     </div>
