@@ -107,6 +107,13 @@ button:hover {
   margin: 5px 0;
 }
 
+.owner-info {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 2px 0;
+  font-style: italic;
+}
+
 /* Admin Panel Styles */
 #admin-container {
   max-width: 800px;

@@ -1,5 +1,17 @@
-
 $(document).ready(function () {
+    // Sample data (replace with actual data loading from draft.json)
+    const teamOwners = {
+        "TeamA": "John",
+        "TeamB": "Jane",
+        "TeamC": "Mike",
+        "TeamD": "Sarah",
+        // Add more teams as needed
+    };
+
+    function findTeamOwner(teamName) {
+        return teamOwners[teamName] || "Unknown";
+    }
+
     function fetchGames() {
         console.log("Fetching games...");
         $("#games-container").html("<p>Loading games...</p>");
@@ -19,7 +31,7 @@ $(document).ready(function () {
                     const awayScore = parseInt(awayTeam.score) || 0;
                     const homeScore = parseInt(homeTeam.score) || 0;
                     const hasScores = awayTeam.score !== "" && homeTeam.score !== "";
-                    
+
                     // Format date from MM-DD-YYYY to MM/DD/YY
                     const dateStr = gameData.startDate ? 
                         gameData.startDate.split('-').slice(0, 2).join('/') + '/' + 
@@ -31,10 +43,12 @@ $(document).ready(function () {
                             <div class="team ${hasScores ? (awayScore > homeScore ? 'winning' : 'losing') : ''}">
                                 <p>${awayTeam.names.char6} <span class="seeds">(#${awayTeam.seed})</span></p>
                                 <p><strong>${awayTeam.score}</strong></p>
+                                <p class="owner-info">${findTeamOwner(awayTeam.names.short)}</p>
                             </div>
                             <div class="team ${hasScores ? (homeScore > awayScore ? 'winning' : 'losing') : ''}">
                                 <p>${homeTeam.names.char6} <span class="seeds">(#${homeTeam.seed})</span></p>
                                 <p><strong>${homeTeam.score}</strong></p>
+                                <p class="owner-info">${findTeamOwner(homeTeam.names.short)}</p>
                             </div>
                             <p><strong>${
                                 gameData.finalMessage === "FINAL" ? "FINAL" : 
