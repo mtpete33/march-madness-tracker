@@ -17,13 +17,26 @@ $(document).ready(function () {
             return teamOwners[teamName];
         }
         
-        // Try to match abbreviated versions
-        const shortTeamName = teamName.replace('University of ', '')
-                                    .replace(' University', '')
-                                    .replace('State', 'St.')
-                                    .trim();
-                                    
-        return teamOwners[shortTeamName] || "Unknown";
+        // Normalize the team name for comparison
+        const normalizeTeam = (name) => {
+            return name.toUpperCase()
+                      .replace('UNIVERSITY OF ', '')
+                      .replace(' UNIVERSITY', '')
+                      .replace('STATE', 'ST')
+                      .replace(/[^A-Z]/g, '')
+                      .trim();
+        };
+        
+        const normalizedSearch = normalizeTeam(teamName);
+        
+        // Look for a match in normalized team names
+        for (const [team, owner] of Object.entries(teamOwners)) {
+            if (normalizeTeam(team) === normalizedSearch) {
+                return owner;
+            }
+        }
+        
+        return "Unknown";
     }
 
     function fetchGames() {
