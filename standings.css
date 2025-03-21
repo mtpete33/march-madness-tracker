@@ -100,7 +100,7 @@ button:hover {
 @media (max-width: 420px) {
     .player-card {
         padding: 7px 15px;
-        width: 275px;
+        width: 270px;
         margin: 0 auto;
     }
 }

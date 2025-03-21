@@ -90,7 +90,7 @@ $(document).ready(function() {
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
                                 const winInfo = teamWins.get(team);
-                                const winStatus = winInfo && winInfo.round !== "First Four" ? `<span class="win-status">(Won ${winInfo.round}: +${winInfo.points}pts)</span>` : '';
+                                const winStatus = winInfo && winInfo.round !== "First Four" ? `<span class="win-status">(${winInfo.round}: +${winInfo.points}pts)</span>` : '';
                                 return `<li class="${isEliminated ? 'eliminated' : ''}">${team} ${winStatus}</li>`;
                             }).join('')}
                         </ul>
