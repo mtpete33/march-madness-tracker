@@ -49,12 +49,13 @@ app.get("/scoreboard", async (req, res) => {
             }
             console.log("Total First Four games found:", allGames.length);
         } else {
-            // For other rounds, fetch current and next day's games
-            const today = currentDate;
-            const tomorrow = new Date(currentDate);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-
-            const dates = [today, tomorrow];
+            // For other rounds, fetch games from multiple days
+            const dates = [];
+            for (let i = -1; i <= 3; i++) {  // Look back 1 day and forward 3 days
+                const date = new Date(currentDate);
+                date.setDate(date.getDate() + i);
+                dates.push(date);
+            }
             allGames = [];
 
             for (const date of dates) {
@@ -68,7 +69,11 @@ app.get("/scoreboard", async (req, res) => {
                     );
                     const data = await response.json();
                     if (data.games) {
-                        allGames = [...allGames, ...data.games];
+                        // Only include games from the selected round
+                        const roundGames = data.games.filter(g => 
+                            g.game.bracketRound === selectedRound
+                        );
+                        allGames = [...allGames, ...roundGames];
                     }
                 } catch (error) {
                     console.error(`Error fetching games for ${year}-${month}-${day}:`, error);
