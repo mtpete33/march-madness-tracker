@@ -20,10 +20,11 @@ $(document).ready(function () {
         // Normalize the team name for comparison
         const normalizeTeam = (name) => {
             console.log('Normalizing team name:', name);
-            const normalized = name.toUpperCase()
+            let normalized = name.toUpperCase()
                       .replace('UNIVERSITY OF ', '')
                       .replace(' UNIVERSITY', '')
                       .replace('STATE', 'ST')
+                      .replace('NORTH CAROLINA', 'UNC')
                       .replace(/[^A-Z]/g, '')
                       .trim();
             console.log('Normalized to:', normalized);
