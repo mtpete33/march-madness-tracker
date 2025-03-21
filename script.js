@@ -1,12 +1,15 @@
 $(document).ready(function () {
     // Sample data (replace with actual data loading from draft.json)
-    const teamOwners = {
-        "TeamA": "John",
-        "TeamB": "Jane",
-        "TeamC": "Mike",
-        "TeamD": "Sarah",
-        // Add more teams as needed
-    };
+    let teamOwners = {};
+    
+    // Load draft data
+    $.getJSON('draft.json', function(data) {
+        data.family_members.forEach(member => {
+            member.teams.forEach(team => {
+                teamOwners[team] = member.name;
+            });
+        });
+    });
 
     function findTeamOwner(teamName) {
         return teamOwners[teamName] || "Unknown";
