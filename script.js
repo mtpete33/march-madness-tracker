@@ -12,7 +12,18 @@ $(document).ready(function () {
     });
 
     function findTeamOwner(teamName) {
-        return teamOwners[teamName] || "Unknown";
+        // Try exact match first
+        if (teamOwners[teamName]) {
+            return teamOwners[teamName];
+        }
+        
+        // Try to match abbreviated versions
+        const shortTeamName = teamName.replace('University of ', '')
+                                    .replace(' University', '')
+                                    .replace('State', 'St.')
+                                    .trim();
+                                    
+        return teamOwners[shortTeamName] || "Unknown";
     }
 
     function fetchGames() {
