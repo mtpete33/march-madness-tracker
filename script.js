@@ -19,19 +19,27 @@ $(document).ready(function () {
         
         // Normalize the team name for comparison
         const normalizeTeam = (name) => {
-            return name.toUpperCase()
+            console.log('Normalizing team name:', name);
+            const normalized = name.toUpperCase()
                       .replace('UNIVERSITY OF ', '')
                       .replace(' UNIVERSITY', '')
                       .replace('STATE', 'ST')
                       .replace(/[^A-Z]/g, '')
                       .trim();
+            console.log('Normalized to:', normalized);
+            return normalized;
         };
         
         const normalizedSearch = normalizeTeam(teamName);
+        console.log('Looking for team:', teamName);
+        console.log('Normalized search term:', normalizedSearch);
+        console.log('Available teams:', Object.keys(teamOwners));
         
         // Look for a match in normalized team names
         for (const [team, owner] of Object.entries(teamOwners)) {
-            if (normalizeTeam(team) === normalizedSearch) {
+            const normalizedTeam = normalizeTeam(team);
+            console.log(`Comparing '${normalizedSearch}' with '${normalizedTeam}'`);
+            if (normalizedTeam === normalizedSearch) {
                 return owner;
             }
         }
