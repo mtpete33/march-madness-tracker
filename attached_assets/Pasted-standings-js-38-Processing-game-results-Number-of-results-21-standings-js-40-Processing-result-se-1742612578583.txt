@@ -1,0 +1,165 @@
+standings.js:38 Processing game results. Number of results: 21
+standings.js:40 Processing result set 1: {games: Array(4)}games: (4) [{…}, {…}, {…}, {…}][[Prototype]]: Object
+standings.js:42 Found 4 games in result set 1
+standings.js:49 Processing game: Alabama St. vs SF Austin Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'SF Austin', homeScore: 68, homeSeed: 16, awayTeam: 'Alabama St.', awayScore: 70, …}
+standings.js:49 Processing game: San Diego St. vs UNC Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'UNC', homeScore: 95, homeSeed: 11, awayTeam: 'San Diego St.', awayScore: 68, …}
+standings.js:49 Processing game: American vs Mount St. Mary's Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: "Mount St. Mary's", homeScore: 83, homeSeed: 16, awayTeam: 'American', awayScore: 72, …}
+standings.js:49 Processing game: Texas A&M-CC vs Xavier Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'Xavier', homeScore: 86, homeSeed: 11, awayTeam: 'Texas A&M-CC', awayScore: 80, …}
+standings.js:40 Processing result set 2: {games: Array(4)}
+standings.js:42 Found 4 games in result set 2
+standings.js:49 Processing game: Alabama St. vs SF Austin Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'SF Austin', homeScore: 68, homeSeed: 16, awayTeam: 'Alabama St.', awayScore: 70, …}
+standings.js:49 Processing game: San Diego St. vs UNC Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'UNC', homeScore: 95, homeSeed: 11, awayTeam: 'San Diego St.', awayScore: 68, …}
+standings.js:49 Processing game: American vs Mount St. Mary's Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: "Mount St. Mary's", homeScore: 83, homeSeed: 16, awayTeam: 'American', awayScore: 72, …}
+standings.js:49 Processing game: Texas A&M-CC vs Xavier Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'Xavier', homeScore: 86, homeSeed: 11, awayTeam: 'Texas A&M-CC', awayScore: 80, …}
+standings.js:40 Processing result set 3: {games: Array(4)}
+standings.js:42 Found 4 games in result set 3
+standings.js:49 Processing game: Alabama St. vs SF Austin Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'SF Austin', homeScore: 68, homeSeed: 16, awayTeam: 'Alabama St.', awayScore: 70, …}
+standings.js:49 Processing game: San Diego St. vs UNC Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'UNC', homeScore: 95, homeSeed: 11, awayTeam: 'San Diego St.', awayScore: 68, …}
+standings.js:49 Processing game: American vs Mount St. Mary's Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: "Mount St. Mary's", homeScore: 83, homeSeed: 16, awayTeam: 'American', awayScore: 72, …}
+standings.js:49 Processing game: Texas A&M-CC vs Xavier Round: First Four Status: FINAL
+standings.js:57 Final game found: {homeTeam: 'Xavier', homeScore: 86, homeSeed: 11, awayTeam: 'Texas A&M-CC', awayScore: 80, …}
+standings.js:40 Processing result set 4: {games: Array(0)}
+standings.js:42 Found 0 games in result set 4
+standings.js:40 Processing result set 5: {games: Array(0)}
+standings.js:42 Found 0 games in result set 5
+standings.js:40 Processing result set 6: {games: Array(0)}
+standings.js:42 Found 0 games in result set 6
+standings.js:40 Processing result set 7: {games: Array(1)}
+standings.js:42 Found 1 games in result set 7
+standings.js:49 Processing game: undefined Round: Second Round Status: undefined
+standings.js:40 Processing result set 8: {games: Array(1)}
+standings.js:42 Found 1 games in result set 8
+standings.js:49 Processing game: undefined Round: Second Round Status: undefined
+standings.js:40 Processing result set 9: {games: Array(1)}
+standings.js:42 Found 1 games in result set 9
+standings.js:49 Processing game: undefined Round: Second Round Status: undefined
+standings.js:40 Processing result set 10: {games: Array(1)}
+standings.js:42 Found 1 games in result set 10
+standings.js:49 Processing game: undefined Round: Sweet 16 Status: undefined
+standings.js:40 Processing result set 11: {games: Array(1)}
+standings.js:42 Found 1 games in result set 11
+standings.js:49 Processing game: undefined Round: Sweet 16 Status: undefined
+standings.js:40 Processing result set 12: {games: Array(1)}
+standings.js:42 Found 1 games in result set 12
+standings.js:49 Processing game: undefined Round: Sweet 16 Status: undefined
+standings.js:40 Processing result set 13: {games: Array(1)}
+standings.js:42 Found 1 games in result set 13
+standings.js:49 Processing game: undefined Round: Elite Eight Status: undefined
+standings.js:40 Processing result set 14: {games: Array(1)}
+standings.js:42 Found 1 games in result set 14
+standings.js:49 Processing game: undefined Round: Elite Eight Status: undefined
+standings.js:40 Processing result set 15: {games: Array(1)}
+standings.js:42 Found 1 games in result set 15
+standings.js:49 Processing game: undefined Round: Elite Eight Status: undefined
+standings.js:40 Processing result set 16: {games: Array(1)}
+standings.js:42 Found 1 games in result set 16
+standings.js:49 Processing game: undefined Round: Final Four Status: undefined
+standings.js:40 Processing result set 17: {games: Array(1)}
+standings.js:42 Found 1 games in result set 17
+standings.js:49 Processing game: undefined Round: Final Four Status: undefined
+standings.js:40 Processing result set 18: {games: Array(1)}
+standings.js:42 Found 1 games in result set 18
+standings.js:49 Processing game: undefined Round: Final Four Status: undefined
+standings.js:40 Processing result set 19: {games: Array(1)}
+standings.js:42 Found 1 games in result set 19
+standings.js:49 Processing game: undefined Round: National Championship Status: undefined
+standings.js:40 Processing result set 20: {games: Array(1)}
+standings.js:42 Found 1 games in result set 20
+standings.js:49 Processing game: undefined Round: National Championship Status: undefined
+standings.js:40 Processing result set 21: {games: Array(1)}
+standings.js:42 Found 1 games in result set 21
+standings.js:49 Processing game: undefined Round: National Championship Status: undefined
+standings.js:133 Loading draft.json data: {family_members: Array(8), teams: {…}, points_per_round: {…}}
+standings.js:134 Current teamWins map: []
+standings.js:135 Current eliminatedTeams: []
+standings.js:115 Calculating points for teams: (8) ['Duke', 'Clemson', 'Louisville', 'BYU', "Saint Mary's (CA)", 'High Point', 'Akron', 'Norfolk St.']
+standings.js:117 Checking team Duke: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Clemson: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Louisville: {hasWins: false, winData: undefined}
+standings.js:117 Checking team BYU: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Saint Mary's (CA): {hasWins: false, winData: undefined}
+standings.js:117 Checking team High Point: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Akron: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Norfolk St.: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ['Florida', 'Kentucky', 'Arizona', 'Marquette', 'Georgia', 'Vanderbilt', 'Yale', "Mount St. Mary's"]
+standings.js:117 Checking team Florida: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Kentucky: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Arizona: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Marquette: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Georgia: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Vanderbilt: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Yale: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Mount St. Mary's: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ['Auburn', 'Maryland', 'Texas A&M', 'UConn', 'UC San Diego', 'Arkansas', 'Lipscomb', 'SIUE']
+standings.js:117 Checking team Auburn: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Maryland: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Texas A&M: {hasWins: false, winData: undefined}
+standings.js:117 Checking team UConn: {hasWins: false, winData: undefined}
+standings.js:117 Checking team UC San Diego: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Arkansas: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Lipscomb: {hasWins: false, winData: undefined}
+standings.js:117 Checking team SIUE: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ['Michigan St.', 'Gonzaga', 'Kansas', 'VCU', 'Liberty', 'Xavier', 'UNC', 'Robert Morris']
+standings.js:117 Checking team Michigan St.: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Gonzaga: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Kansas: {hasWins: false, winData: undefined}
+standings.js:117 Checking team VCU: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Liberty: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Xavier: {hasWins: false, winData: undefined}
+standings.js:117 Checking team UNC: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Robert Morris: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ['Houston', 'Wisconsin', 'Michigan', 'Missouri', 'UCLA', 'New Mexico', 'Grand Canyon', 'Omaha']
+standings.js:117 Checking team Houston: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Wisconsin: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Michigan: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Missouri: {hasWins: false, winData: undefined}
+standings.js:117 Checking team UCLA: {hasWins: false, winData: undefined}
+standings.js:117 Checking team New Mexico: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Grand Canyon: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Omaha: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ['Tennessee', 'Texas Tech', 'Oregon', 'Ole Miss', 'Oklahoma', 'Baylor', 'Troy', 'Wofford']
+standings.js:117 Checking team Tennessee: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Texas Tech: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Oregon: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Ole Miss: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Oklahoma: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Baylor: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Troy: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Wofford: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ["St. John's (NY)", 'Colorado St.', 'Purdue', 'Creighton', 'Mississippi St.', 'Utah St.', 'Bryant', 'Alabama St.']
+standings.js:117 Checking team St. John's (NY): {hasWins: false, winData: undefined}
+standings.js:117 Checking team Colorado St.: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Purdue: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Creighton: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Mississippi St.: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Utah St.: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Bryant: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Alabama St.: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
+standings.js:115 Calculating points for teams: (8) ['Alabama', 'Iowa St.', 'Memphis', 'Illinois', 'Drake', 'McNeese', 'Montana', 'UNCW']
+standings.js:117 Checking team Alabama: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Iowa St.: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Memphis: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Illinois: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Drake: {hasWins: false, winData: undefined}
+standings.js:117 Checking team McNeese: {hasWins: false, winData: undefined}
+standings.js:117 Checking team Montana: {hasWins: false, winData: undefined}
+standings.js:117 Checking team UNCW: {hasWins: false, winData: undefined}
+standings.js:127 Total points calculated: 0
