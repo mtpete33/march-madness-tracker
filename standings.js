@@ -14,13 +14,14 @@ $(document).ready(function() {
     function fetchAllCompletedGames() {
         const rounds = ["First Four", "First Round", "Second Round", "Sweet 16", "Elite Eight", "Final Four", "National Championship"];
 
-        // Get dates for the past 3 days
+        // Get dates from March 19th to present
         const dates = [];
-        for (let i = -2; i <= 0; i++) {
-            const date = new Date();
-            date.setDate(date.getDate() + i);
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
+        const startDate = new Date(2025, 2, 19); // March 19th, 2025
+        const currentDate = new Date();
+        
+        for (let d = new Date(startDate); d <= currentDate; d.setDate(d.getDate() + 1)) {
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
             dates.push(`${month}-${day}`);
         }
 
