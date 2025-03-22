@@ -114,10 +114,12 @@ $(document).ready(function() {
             data.family_members.sort((a, b) => b.points - a.points);
 
             data.family_members.forEach(member => {
-                const playerCard = $(`
+                const teamsLeft = member.teams.filter(team => !eliminatedTeams.has(team)).length;
+    const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
                         <div class="points">Total Points: ${member.points}</div>
+                        <div class="teams-left">Teams Left: ${teamsLeft}</div>
                         <ul class="team-list">
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
