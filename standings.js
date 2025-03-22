@@ -38,21 +38,22 @@ $(document).ready(function() {
                         const awaySeed = parseInt(game.away.seed);
                         const round = game.bracketRound;
 
-                        console.log(`Processing ${round} game:`, {
-                            homeTeam: game.home.names.short,
-                            homeScore,
-                            awayTeam: game.away.names.short,
-                            awayScore
-                        });
+                        // Normalize team names to handle variations
+                        const normalizeTeamName = (team) => {
+                            const name = team.names.short;
+                            // Add special cases here
+                            if (name === "North Carolina") return "UNC";
+                            return name;
+                        };
 
                         let winningTeam, losingTeam, upsetPoints = 0;
                         if (homeScore > awayScore) {
-                            winningTeam = game.home.names.short;
-                            losingTeam = game.away.names.short;
+                            winningTeam = normalizeTeamName(game.home);
+                            losingTeam = normalizeTeamName(game.away);
                             upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
                         } else if (awayScore > homeScore) {
-                            winningTeam = game.away.names.short;
-                            losingTeam = game.home.names.short;
+                            winningTeam = normalizeTeamName(game.away);
+                            losingTeam = normalizeTeamName(game.home);
                             upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
                         }
 
