@@ -24,6 +24,7 @@ $(document).ready(function() {
             results.forEach(data => {
                 if (data.games) {
                     data.games.forEach(gameData => {
+                        if (!gameData.game) return;
                         const game = gameData.game;
                         if (game.finalMessage === "FINAL") {
                             const homeScore = parseInt(game.home.score);
@@ -31,7 +32,7 @@ $(document).ready(function() {
                             const homeSeed = parseInt(game.home.seed);
                             const awaySeed = parseInt(game.away.seed);
 
-                            if (homeScore > awayScore) {
+                            if (game.home.winner) {
                                 // Home team won
                                 eliminatedTeams.add(game.away.names.short);
                                 let upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
@@ -46,7 +47,7 @@ $(document).ready(function() {
                                     points: existingPoints + totalPoints + upsetPoints
                                 });
                                 console.log(`${game.home.names.short} won in ${game.bracketRound}, total points: ${existingPoints + totalPoints + upsetPoints}`);
-                            } else if (awayScore > homeScore) {
+                            } else if (game.away.winner) {
                                 // Away team won
                                 eliminatedTeams.add(game.home.names.short);
                                 let upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
