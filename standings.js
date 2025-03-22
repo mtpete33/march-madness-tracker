@@ -13,9 +13,23 @@ $(document).ready(function() {
     // Fetch all completed games to build eliminated teams list and track wins
     function fetchAllCompletedGames() {
         const rounds = ["First Four", "First Round", "Second Round", "Sweet 16", "Elite Eight", "Final Four", "National Championship"];
-        let promises = rounds.map(round => 
-            $.get("/scoreboard", { round })
-        );
+        
+        // Get dates for the past 3 days
+        const dates = [];
+        for (let i = -2; i <= 0; i++) {
+            const date = new Date();
+            date.setDate(date.getDate() + i);
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            dates.push(`${month}-${day}`);
+        }
+        
+        let promises = [];
+        rounds.forEach(round => {
+            dates.forEach(date => {
+                promises.push($.get("/scoreboard", { round, date }));
+            });
+        });
 
         Promise.all(promises).then(results => {
             eliminatedTeams.clear();

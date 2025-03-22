@@ -24,7 +24,8 @@ app.post('/updateDraft', async (req, res) => {
 app.get("/scoreboard", async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
-        const currentDate = new Date();
+        const requestedDate = req.query.date;
+        const currentDate = requestedDate ? new Date(2024, ...requestedDate.split('-').map(Number)) : new Date();
 
         let allGames = [];
 
