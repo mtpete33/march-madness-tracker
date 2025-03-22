@@ -14,56 +14,58 @@ $(document).ready(function() {
     function fetchAllCompletedGames() {
         const rounds = ["First Four", "First Round", "Second Round", "Sweet 16", "Elite Eight", "Final Four", "National Championship"];
         const processedGames = new Set();
-        
+
         // Reset game tracking
         eliminatedTeams.clear();
         teamWins.clear();
 
-        // Only fetch First Round games for now since that's what we're tracking
-        $.get("/scoreboard", { round: "First Round" }).then(data => {
-            if (!data || !data.games) return;
+        // Fetch First Round and Second Round games
+        Promise.all([
+            $.get("/scoreboard", { round: "First Round" }),
+            $.get("/scoreboard", { round: "Second Round" })
+        ]).then(data => {
+            data.forEach(roundData => {
+                if (!roundData || !roundData.games) return;
 
-            data.games.forEach(gameData => {
-                if (!gameData.game) return;
-                const game = gameData.game;
+                roundData.games.forEach(gameData => {
+                    if (!gameData.game) return;
+                    const game = gameData.game;
 
-                if (game.finalMessage === "FINAL" && game.bracketRound === "First Round" && game.home && game.away) {
-                    const homeScore = parseInt(game.home.score);
-                    const awayScore = parseInt(game.away.score);
-                    const homeSeed = parseInt(game.home.seed);
-                    const awaySeed = parseInt(game.away.seed);
+                    if (game.finalMessage === "FINAL" && game.home && game.away) {
+                        const homeScore = parseInt(game.home.score);
+                        const awayScore = parseInt(game.away.score);
+                        const homeSeed = parseInt(game.home.seed);
+                        const awaySeed = parseInt(game.away.seed);
+                        const round = game.bracketRound;
 
-                    console.log(`Processing First Round game:`, {
-                        homeTeam: game.home.names.short,
-                        homeScore,
-                        awayTeam: game.away.names.short,
-                        awayScore
-                    });
-
-                    if (homeScore > awayScore) {
-                        // Home team won
-                        eliminatedTeams.add(game.away.names.short);
-                        let upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
-                        
-                        teamWins.set(game.home.names.short, {
-                            round: "First Round",
-                            points: 5 + upsetPoints // Base points (5) + upset bonus
+                        console.log(`Processing ${round} game:`, {
+                            homeTeam: game.home.names.short,
+                            homeScore,
+                            awayTeam: game.away.names.short,
+                            awayScore
                         });
-                        
-                        console.log(`${game.home.names.short} won, earned ${5 + upsetPoints} points`);
-                    } else if (awayScore > homeScore) {
-                        // Away team won
-                        eliminatedTeams.add(game.home.names.short);
-                        let upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
-                        
-                        teamWins.set(game.away.names.short, {
-                            round: "First Round",
-                            points: 5 + upsetPoints // Base points (5) + upset bonus
-                        });
-                        
-                        console.log(`${game.away.names.short} won, earned ${5 + upsetPoints} points`);
+
+                        let winningTeam, losingTeam, upsetPoints = 0;
+                        if (homeScore > awayScore) {
+                            winningTeam = game.home.names.short;
+                            losingTeam = game.away.names.short;
+                            upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
+                        } else if (awayScore > homeScore) {
+                            winningTeam = game.away.names.short;
+                            losingTeam = game.home.names.short;
+                            upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
+                        }
+
+                        if (winningTeam) {
+                            eliminatedTeams.add(losingTeam);
+                            let points = roundPoints[round] + upsetPoints;
+                            let existingWins = teamWins.get(winningTeam) || [];
+                            existingWins.push({ round, points });
+                            teamWins.set(winningTeam, existingWins);
+                            console.log(`${winningTeam} won, earned ${points} points in ${round}`);
+                        }
                     }
-                }
+                });
             });
             loadStandings();
         });
@@ -79,9 +81,14 @@ $(document).ready(function() {
             });
             if (teamWins.has(team)) {
                 const winData = teamWins.get(team);
-                const points = winData.points;
+                let points = 0;
+                if (Array.isArray(winData)) {
+                    winData.forEach(w => points += w.points);
+                } else {
+                    points = winData.points;
+                }
                 total += points;
-                console.log(`Adding ${points} points for ${team} (${winData.round})`);
+                console.log(`Adding ${points} points for ${team}`);
             }
         });
         console.log("Total points calculated:", total);
@@ -109,13 +116,21 @@ $(document).ready(function() {
                 const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
-                        <div class="points">Points: ${member.points}</div>
+                        <div class="points">Total Points: ${member.points}</div>
                         <ul class="team-list">
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
                                 const winInfo = teamWins.get(team);
-                                const winStatus = winInfo && winInfo.round !== "First Four" ? `<span class="win-status">(${winInfo.round}: +${winInfo.points}pts)</span>` : '';
-                                return `<li class="${isEliminated ? 'eliminated' : ''}">${team} ${winStatus}</li>`;
+                                let winStatus = '';
+                                if (winInfo) {
+                                    // Show all rounds the team has won
+                                    if (Array.isArray(winInfo)) {
+                                        winStatus = winInfo.map(w => `(${w.round}: +${w.points}pts)`).join(' ');
+                                    } else {
+                                        winStatus = `(${winInfo.round}: +${winInfo.points}pts)`;
+                                    }
+                                }
+                                return `<li class="${isEliminated ? 'eliminated' : ''}">${team} <span class="win-status">${winStatus}</span></li>`;
                             }).join('')}
                         </ul>
                     </div>
