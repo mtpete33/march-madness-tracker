@@ -35,16 +35,35 @@ $(document).ready(function() {
             eliminatedTeams.clear();
             teamWins.clear();
 
-            results.forEach(data => {
+            console.log("Processing game results. Number of results:", results.length);
+            results.forEach((data, idx) => {
+                console.log(`Processing result set ${idx + 1}:`, data);
                 if (data.games) {
+                    console.log(`Found ${data.games.length} games in result set ${idx + 1}`);
                     data.games.forEach(gameData => {
-                        if (!gameData.game) return;
+                        if (!gameData.game) {
+                            console.log("Invalid game data, missing game object");
+                            return;
+                        }
                         const game = gameData.game;
+                        console.log("Processing game:", game.title, "Round:", game.bracketRound, "Status:", game.finalMessage);
+                        
                         if (game.finalMessage === "FINAL") {
                             const homeScore = parseInt(game.home.score);
                             const awayScore = parseInt(game.away.score);
                             const homeSeed = parseInt(game.home.seed);
                             const awaySeed = parseInt(game.away.seed);
+                            
+                            console.log("Final game found:", {
+                                homeTeam: game.home.names.short,
+                                homeScore,
+                                homeSeed,
+                                awayTeam: game.away.names.short,
+                                awayScore,
+                                awaySeed,
+                                round: game.bracketRound,
+                                basePoints: roundPoints[game.bracketRound]
+                            });
 
                             if (game.home.winner) {
                                 // Home team won
@@ -56,11 +75,17 @@ $(document).ready(function() {
                                 const existingWin = teamWins.get(game.home.names.short);
                                 const existingPoints = existingWin ? existingWin.points : 0;
                                 
+                                const newTotalPoints = existingPoints + totalPoints + upsetPoints;
                                 teamWins.set(game.home.names.short, {
                                     round: game.bracketRound,
-                                    points: existingPoints + totalPoints + upsetPoints
+                                    points: newTotalPoints
                                 });
-                                console.log(`${game.home.names.short} won in ${game.bracketRound}, total points: ${existingPoints + totalPoints + upsetPoints}`);
+                                console.log(`${game.home.names.short} won in ${game.bracketRound}:`, {
+                                    basePoints: totalPoints,
+                                    upsetPoints,
+                                    existingPoints,
+                                    newTotalPoints
+                                });
                             } else if (game.away.winner) {
                                 // Away team won
                                 eliminatedTeams.add(game.home.names.short);
@@ -87,16 +112,28 @@ $(document).ready(function() {
 
     function calculatePlayerPoints(teams) {
         let total = 0;
+        console.log("Calculating points for teams:", teams);
         teams.forEach(team => {
+            console.log(`Checking team ${team}:`, {
+                hasWins: teamWins.has(team),
+                winData: teamWins.get(team)
+            });
             if (teamWins.has(team)) {
-                total += teamWins.get(team).points;
+                const points = teamWins.get(team).points;
+                total += points;
+                console.log(`Adding ${points} points for ${team}`);
             }
         });
+        console.log("Total points calculated:", total);
         return total;
     }
 
     function loadStandings() {
         $.getJSON('draft.json', function(data) {
+            console.log("Loading draft.json data:", data);
+            console.log("Current teamWins map:", Array.from(teamWins.entries()));
+            console.log("Current eliminatedTeams:", Array.from(eliminatedTeams));
+            
             const container = $('#standings-container');
             container.empty();
 
