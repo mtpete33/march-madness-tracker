@@ -1,0 +1,69 @@
+Calculating points for teams: 
+(8) ["Auburn", "Maryland", "Texas A&M", "UConn", "UC San Diego", "Arkansas", "Lipscomb", "SIUE"]
+Checking team Auburn: 
+Object {hasWins: false, winData: undefined}
+Checking team Maryland: 
+Object {hasWins: false, winData: undefined}
+Checking team Texas A&M: 
+Object {hasWins: false, winData: undefined}
+Checking team UConn: 
+Object {hasWins: false, winData: undefined}
+Checking team UC San Diego: 
+Object {hasWins: false, winData: undefined}
+Checking team Arkansas: 
+Object {hasWins: false, winData: undefined}
+Checking team Lipscomb: 
+Object {hasWins: false, winData: undefined}
+Checking team SIUE: 
+Object {hasWins: false, winData: undefined}
+Total points calculated: 0
+Calculating points for teams: 
+(8) ["Michigan St.", "Gonzaga", "Kansas", "VCU", "Liberty", "Xavier", "UNC", "Robert Morris"]
+Checking team Michigan St.: 
+Object {hasWins: false, winData: undefined}
+Checking team Gonzaga: 
+Object {hasWins: false, winData: undefined}
+Checking team Kansas: 
+Object {hasWins: false, winData: undefined}
+Checking team VCU: 
+Object {hasWins: false, winData: undefined}
+Checking team Liberty: 
+Object {hasWins: false, winData: undefined}
+Checking team Xavier: 
+Object {hasWins: true, winData: {…}}
+Adding 0 points for Xavier
+Checking team UNC: 
+Object {hasWins: true, winData: {…}}
+Adding 0 points for UNC
+Checking team Robert Morris: 
+Object {hasWins: false, winData: undefined}
+Total points calculated: 0
+Calculating points for teams: 
+(8) ["Houston", "Wisconsin", "Michigan", "Missouri", "UCLA", "New Mexico", "Grand Canyon", "Omaha"]
+Checking team Houston: 
+Object {hasWins: false, winData: undefined}
+Checking team Wisconsin: 
+Object {hasWins: false, winData: undefined}
+Checking team Michigan: 
+Object {hasWins: false, winData: undefined}
+Checking team Missouri: 
+Object {hasWins: false, winData: undefined}
+Checking team UCLA: 
+Object {hasWins: false, winData: undefined}
+Checking team New Mexico: 
+Object {hasWins: false, winData: undefined}
+Checking team Grand Canyon: 
+Object {hasWins: false, winData: undefined}
+Checking team Omaha: 
+Object {hasWins: false, winData: undefined}
+Total points calculated: 0
+Calculating points for teams: 
+(8) ["Tennessee", "Texas Tech", "Oregon", "Ole Miss", "Oklahoma", "Baylor", "Troy", "Wofford"]
+Checking team Tennessee: 
+Object {hasWins: false, winData: undefined}
+Checking team Texas Tech: 
+Object {hasWins: false, winData: undefined}
+Checking team Oregon: 
+Object {hasWins: false, winData: undefined}
+Checking team Ole Miss: 
+Object {hasWins: false, winData: undefined}
