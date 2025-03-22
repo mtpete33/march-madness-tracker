@@ -36,19 +36,31 @@ $(document).ready(function() {
                                 eliminatedTeams.add(game.away.names.short);
                                 let upsetPoints = homeSeed > awaySeed ? homeSeed - awaySeed : 0;
                                 let totalPoints = roundPoints[game.bracketRound] || 0;
+                                
+                                // Get existing points if any
+                                const existingWin = teamWins.get(game.home.names.short);
+                                const existingPoints = existingWin ? existingWin.points : 0;
+                                
                                 teamWins.set(game.home.names.short, {
                                     round: game.bracketRound,
-                                    points: totalPoints + upsetPoints
+                                    points: existingPoints + totalPoints + upsetPoints
                                 });
+                                console.log(`${game.home.names.short} won in ${game.bracketRound}, total points: ${existingPoints + totalPoints + upsetPoints}`);
                             } else if (awayScore > homeScore) {
                                 // Away team won
                                 eliminatedTeams.add(game.home.names.short);
                                 let upsetPoints = awaySeed > homeSeed ? awaySeed - homeSeed : 0;
                                 let totalPoints = roundPoints[game.bracketRound] || 0;
+                                
+                                // Get existing points if any
+                                const existingWin = teamWins.get(game.away.names.short);
+                                const existingPoints = existingWin ? existingWin.points : 0;
+                                
                                 teamWins.set(game.away.names.short, {
                                     round: game.bracketRound,
-                                    points: totalPoints + upsetPoints
+                                    points: existingPoints + totalPoints + upsetPoints
                                 });
+                                console.log(`${game.away.names.short} won in ${game.bracketRound}, total points: ${existingPoints + totalPoints + upsetPoints}`);
                             }
                         }
                     });
