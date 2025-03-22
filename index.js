@@ -68,6 +68,9 @@ app.get("/scoreboard", async (req, res) => {
                     const response = await fetch(
                         `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/${year}/${month}/${day}/scoreboard.json`
                     );
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
                     const data = await response.json();
                     if (data.games) {
                         // Only include games from the selected round
@@ -78,6 +81,8 @@ app.get("/scoreboard", async (req, res) => {
                     }
                 } catch (error) {
                     console.error(`Error fetching games for ${year}-${month}-${day}:`, error);
+                    res.status(503).json({ error: "NCAA API is currently unavailable" });
+                    return;
                 }
             }
         }
