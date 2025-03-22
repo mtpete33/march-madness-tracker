@@ -1,6 +1,6 @@
 body {
   font-family: Calibri, Arial, sans-serif;
-  background-color: #d8eeff;
+  background-color: #d8eeff;, 
   text-align: center;
   padding: 15px;
   font-size: 19px;
@@ -153,6 +153,7 @@ button:hover {
     margin-bottom: 5px;
   }
   #games-container {
-    margin-top: 0px;
+    margin: 0 auto;
+    width: 305px;
   }
 }
