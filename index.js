@@ -229,6 +229,19 @@ app.get("/scoreboard", async (req, res) => {
         // Filter games based on selected round
         if (selectedRound === "First Four") {
             allGames = firstFourGames;
+        } else if (selectedRound === "Second Round") {
+            // Keep the filtered Second Round games from the NCAA API
+            allGames = allGames.filter(game => game.game.bracketRound === "Second Round");
+            if (allGames.length === 0) {
+                allGames = [{
+                    game: {
+                        bracketRound: "Second Round",
+                        home: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        away: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        startTime: "TBD"
+                    }
+                }];
+            }
         } else if (selectedRound !== "First Round") {
             allGames = [{
                 game: {
