@@ -24,8 +24,14 @@ app.post('/updateDraft', async (req, res) => {
 app.get("/scoreboard", async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
-        const requestedDate = req.query.date;
-        const currentDate = requestedDate ? new Date(2024, ...requestedDate.split('-').map(Number)) : new Date();
+        const startDate = new Date(2025, 2, 19); // March 19th, 2025
+        const currentDate = new Date();
+        const dates = [];
+        
+        // Generate array of dates from March 19th to current date
+        for (let d = new Date(startDate); d <= currentDate; d.setDate(d.getDate() + 1)) {
+            dates.push(new Date(d));
+        }
 
         let allGames = [];
 
@@ -50,13 +56,7 @@ app.get("/scoreboard", async (req, res) => {
             }
             console.log("Total First Four games found:", allGames.length);
         } else {
-            // For other rounds, fetch games from multiple days
-            const dates = [];
-            for (let i = -1; i <= 3; i++) {  // Look back 1 day and forward 3 days
-                const date = new Date(currentDate);
-                date.setDate(date.getDate() + i);
-                dates.push(date);
-            }
+            // For other rounds, use our date range
             allGames = [];
 
             for (const date of dates) {
