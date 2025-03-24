@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     function fetchGames() {
         console.log("Fetching games...");
-        $("#games-container").html("<p>Loading games...</p>");
+        $("#games-container").html('<div class="loading-container"><p>Loading games...</p><div class="basketball"></div></div>');
         const selectedRound = $("#roundSelector").val();
         console.log("Selected round:", selectedRound);
 

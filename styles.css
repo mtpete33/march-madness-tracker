@@ -150,6 +150,39 @@ button:hover {
   color: #333;
 }
 
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.basketball {
+    width: 20px;
+    height: 20px;
+    background: #f88d3d;
+    border-radius: 50%;
+    position: relative;
+    animation: bounce 0.5s infinite alternate;
+}
+
+.basketball::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    border-color: transparent #000 #000 transparent;
+    transform: rotate(45deg);
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
 @media (max-width: 470px) {
   #roundSelector {
     margin-bottom: 5px;
