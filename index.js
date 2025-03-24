@@ -24,7 +24,9 @@ app.post('/updateDraft', async (req, res) => {
 app.get("/scoreboard", async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
-        const startDate = new Date(2025, 2, 19); // March 19th, 2025
+        const startDate = new Date(2025, 2, 19); // March 19th, 2025 through March 27th
+        // Force current date to include Sweet 16 games
+        currentDate = new Date(2025, 2, 27);
         const currentDate = new Date();
         const dates = [];
         
@@ -236,6 +238,19 @@ app.get("/scoreboard", async (req, res) => {
                 allGames = [{
                     game: {
                         bracketRound: "Second Round",
+                        home: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        away: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        startTime: "TBD"
+                    }
+                }];
+            }
+        } else if (selectedRound === "Sweet 16") {
+            // Keep any Sweet 16 games we found
+            allGames = allGames.filter(game => game.game.bracketRound === "Sweet 16");
+            if (allGames.length === 0) {
+                allGames = [{
+                    game: {
+                        bracketRound: "Sweet 16",
                         home: { names: { char6: "TBD" }, seed: "--", score: "" },
                         away: { names: { char6: "TBD" }, seed: "--", score: "" },
                         startTime: "TBD"
