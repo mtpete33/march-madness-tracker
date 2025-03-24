@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Sample data (replace with actual data loading from draft.json)
     let teamOwners = {};
-    
+
     // Load draft data
     $.getJSON('draft.json', function(data) {
         data.family_members.forEach(member => {
@@ -16,7 +16,7 @@ $(document).ready(function () {
         if (teamOwners[teamName]) {
             return teamOwners[teamName];
         }
-        
+
         // Normalize the team name for comparison
         const normalizeTeam = (name) => {
             console.log('Normalizing team name:', name);
@@ -30,12 +30,12 @@ $(document).ready(function () {
             console.log('Normalized to:', normalized);
             return normalized;
         };
-        
+
         const normalizedSearch = normalizeTeam(teamName);
         console.log('Looking for team:', teamName);
         console.log('Normalized search term:', normalizedSearch);
         console.log('Available teams:', Object.keys(teamOwners));
-        
+
         // Look for a match in normalized team names
         for (const [team, owner] of Object.entries(teamOwners)) {
             const normalizedTeam = normalizeTeam(team);
@@ -44,7 +44,7 @@ $(document).ready(function () {
                 return owner;
             }
         }
-        
+
         return "Unknown";
     }
 
@@ -58,8 +58,29 @@ $(document).ready(function () {
             console.log("Received data:", data);
             $("#games-container").empty();
 
-            if (data.games && data.games.length > 0) {
-                data.games.forEach(game => {
+            let allGames = data.games || [];
+
+            //Keep the filtered games from the NCAA API for the selected round
+            allGames = allGames.filter(game => game.game.bracketRound === selectedRound);
+
+            //If no games found, show TBD placeholder
+            if (allGames.length === 0 && selectedRound !== "First Four") {
+                allGames = [{
+                    game: {
+                        bracketRound: selectedRound,
+                        home: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        away: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        startTime: "TBD"
+                    }
+                }];
+            } else if (selectedRound === "First Four") {
+                //Handle First Four separately if needed (e.g., different API endpoint)
+                // ... (Existing First Four logic if any) ...
+            }
+
+
+            if (allGames && allGames.length > 0) {
+                allGames.forEach(game => {
                     const gameData = game.game;
                     const homeTeam = gameData.home;
                     const awayTeam = gameData.away;
