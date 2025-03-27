@@ -96,29 +96,91 @@ $(document).ready(function() {
         return total;
     }
 
-    function loadStandings() {
-        $.getJSON('draft.json', function(data) {
-            console.log("Loading draft.json data:", data);
-            console.log("Current teamWins map:", Array.from(teamWins.entries()));
-            console.log("Current eliminatedTeams:", Array.from(eliminatedTeams));
+    // function loadStandings() {
+    //     $.getJSON('draft.json', function(data) {
+    //         console.log("Loading draft.json data:", data);
+    //         // console.log("Current teamWins map:", Array.from(teamWins.entries()));
+    //         // console.log("Current eliminatedTeams:", Array.from(eliminatedTeams));
 
+    //         const container = $('#standings-container');
+    //         container.empty();
+
+    //         // Calculate points for each member
+    //         data.family_members.forEach(member => {
+    //             member.points = calculatePlayerPoints(member.teams);
+    //         });
+
+    //         // Sort by points (highest first)
+    //         data.family_members.sort((a, b) => b.points - a.points);
+
+    //         data.family_members.forEach(member => {
+    //             const teamsLeft = member.teams.filter(team => !eliminatedTeams.has(team)).length;
+    // const playerCard = $(`
+    //                 <div class="player-card">
+    //                     <h2>${member.name}</h2>
+    //                     <div class="draft-position">Draft Position: # }</div>
+    //                     <div class="points">Total Points: ${member.points}</div>
+    //                     <div class="teams-left">Teams Left: ${teamsLeft}</div>
+    //                     <ul class="team-list">
+    //                         ${member.teams.map(team => {
+    //                             const isEliminated = eliminatedTeams.has(team);
+    //                             const winInfo = teamWins.get(team);
+    //                             let winStatus = '';
+    //                             if (winInfo) {
+    //                                 // Show all rounds the team has won
+    //                                 if (Array.isArray(winInfo)) {
+    //                                     winStatus = winInfo.map(w => `(${w.round}: +${w.points}pts)`).join(' ');
+    //                                 } else {
+    //                                     winStatus = `(${winInfo.round}: +${winInfo.points}pts)`;
+    //                                 }
+    //                             }
+    //                             return `<li class="${isEliminated ? 'eliminated' : ''}">${team} <span class="win-status">${winStatus}</span></li>`;
+    //                         }).join('')}
+    //                     </ul>
+    //                 </div>
+    //             `);
+    //             container.append(playerCard);
+    //         });
+    //     });
+    // }
+
+
+    function loadStandings() {
+        Promise.all([
+            $.getJSON('draft.json'),
+            $.getJSON('draft_order.json')
+        ]).then(([draftData, orderData]) => {
             const container = $('#standings-container');
             container.empty();
 
+            // Create a map of draft positions by name
+            const draftMap = new Map();
+            if (orderData && orderData.draft_order && Array.isArray(orderData.draft_order)) {
+                // Only use the first round's picks to determine draft position
+                const firstRound = orderData.draft_order.find(r => r.round === 1);
+                if (firstRound && Array.isArray(firstRound.picks)) {
+                    firstRound.picks.forEach(pick => {
+                        draftMap.set(pick.drafter, pick.pick_number);
+                    });
+                }
+
+            }
+
             // Calculate points for each member
-            data.family_members.forEach(member => {
+            draftData.family_members.forEach(member => {
                 member.points = calculatePlayerPoints(member.teams);
+                member.draft_position = draftMap.get(member.name) || "N/A";
             });
 
-            // Sort by points (highest first)
-            data.family_members.sort((a, b) => b.points - a.points);
+            // Sort by points
+            draftData.family_members.sort((a, b) => b.points - a.points);
 
-            data.family_members.forEach(member => {
+            draftData.family_members.forEach(member => {
                 const teamsLeft = member.teams.filter(team => !eliminatedTeams.has(team)).length;
-    const playerCard = $(`
+                const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
-                        <div class="draft-position">Draft Position: #${data.draft_metadata.participants.indexOf(member.name) + 1}</div>
+                        <div class="draft-position">Draft Position: ${member.draft_position}</div>
                         <div class="points">Total Points: ${member.points}</div>
                         <div class="teams-left">Teams Left: ${teamsLeft}</div>
                         <ul class="team-list">
@@ -127,7 +189,6 @@ $(document).ready(function() {
                                 const winInfo = teamWins.get(team);
                                 let winStatus = '';
                                 if (winInfo) {
-                                    // Show all rounds the team has won
                                     if (Array.isArray(winInfo)) {
                                         winStatus = winInfo.map(w => `(${w.round}: +${w.points}pts)`).join(' ');
                                     } else {
@@ -143,6 +204,7 @@ $(document).ready(function() {
             });
         });
     }
+
 
     // Initial load
     fetchAllCompletedGames();
