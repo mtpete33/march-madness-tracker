@@ -118,7 +118,7 @@ $(document).ready(function() {
     const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
-                        <div class="draft-position">Draft Position: #${data.draft_metadata.participants.indexOf(member.name) + 1}</div>
+                        <div class="draft-position">Draft Position: #${data.draft_order[0].picks.find(pick => pick.drafter === member.name).pick_number}</div>
                         <div class="points">Total Points: ${member.points}</div>
                         <div class="teams-left">Teams Left: ${teamsLeft}</div>
                         <ul class="team-list">
