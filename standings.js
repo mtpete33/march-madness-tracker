@@ -96,55 +96,6 @@ $(document).ready(function() {
         return total;
     }
 
-    // function loadStandings() {
-    //     $.getJSON('draft.json', function(data) {
-    //         console.log("Loading draft.json data:", data);
-    //         // console.log("Current teamWins map:", Array.from(teamWins.entries()));
-    //         // console.log("Current eliminatedTeams:", Array.from(eliminatedTeams));
-
-    //         const container = $('#standings-container');
-    //         container.empty();
-
-    //         // Calculate points for each member
-    //         data.family_members.forEach(member => {
-    //             member.points = calculatePlayerPoints(member.teams);
-    //         });
-
-    //         // Sort by points (highest first)
-    //         data.family_members.sort((a, b) => b.points - a.points);
-
-    //         data.family_members.forEach(member => {
-    //             const teamsLeft = member.teams.filter(team => !eliminatedTeams.has(team)).length;
-    // const playerCard = $(`
-    //                 <div class="player-card">
-    //                     <h2>${member.name}</h2>
-    //                     <div class="draft-position">Draft Position: # }</div>
-    //                     <div class="points">Total Points: ${member.points}</div>
-    //                     <div class="teams-left">Teams Left: ${teamsLeft}</div>
-    //                     <ul class="team-list">
-    //                         ${member.teams.map(team => {
-    //                             const isEliminated = eliminatedTeams.has(team);
-    //                             const winInfo = teamWins.get(team);
-    //                             let winStatus = '';
-    //                             if (winInfo) {
-    //                                 // Show all rounds the team has won
-    //                                 if (Array.isArray(winInfo)) {
-    //                                     winStatus = winInfo.map(w => `(${w.round}: +${w.points}pts)`).join(' ');
-    //                                 } else {
-    //                                     winStatus = `(${winInfo.round}: +${winInfo.points}pts)`;
-    //                                 }
-    //                             }
-    //                             return `<li class="${isEliminated ? 'eliminated' : ''}">${team} <span class="win-status">${winStatus}</span></li>`;
-    //                         }).join('')}
-    //                     </ul>
-    //                 </div>
-    //             `);
-    //             container.append(playerCard);
-    //         });
-    //     });
-    // }
-
-
     function loadStandings() {
         Promise.all([
             $.getJSON('draft.json'),
@@ -180,7 +131,7 @@ $(document).ready(function() {
                 const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
-                        
+
                         <div class="points">Total Points: ${member.points}</div>
                         <div class="teams-left">Teams Left: ${teamsLeft}</div>
                         <div class="draft-position">Draft Position: ${member.draft_position}</div>
@@ -191,17 +142,17 @@ $(document).ready(function() {
                                 let winStatus = '';
                                 if (winInfo) {
                                     if (Array.isArray(winInfo)) {
-                                        winStatus = winInfo.map(w => `(${w.round}: +${w.points}pts)`).join(' ');
+                                        winStatus = winInfo.map(w => `<div>(${w.round}: +${w.points}pts)</div>`).join('');
                                     } else {
-                                        winStatus = `(${winInfo.round}: +${winInfo.points}pts)`;
+                                        winStatus = `<div>(${winInfo.round}: +${winInfo.points}pts)</div>`;
                                     }
                                 }
                                 return `<li class="${isEliminated ? 'eliminated' : ''}">${team} <span class="win-status">${winStatus}</span></li>`;
                             }).join('')}
                         </ul>
-                        
+
                     </div>
-                    
+
                 `);
                 container.append(playerCard);
             });
