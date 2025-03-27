@@ -115,10 +115,12 @@ $(document).ready(function() {
 
             data.family_members.forEach(member => {
                 const teamsLeft = member.teams.filter(team => !eliminatedTeams.has(team)).length;
-    const playerCard = $(`
+    $.getJSON('draft_order.json', function(draftData) {
+        const draftPosition = draftData.draft_order[0].picks.find(pick => pick.drafter === member.name).pick_number;
+        const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
-                        <div class="draft-position">Draft Position: #${data.draft_order[0].picks.find(pick => pick.drafter === member.name).pick_number}</div>
+                        <div class="draft-position">Draft Position: #${draftPosition}</div>
                         <div class="points">Total Points: ${member.points}</div>
                         <div class="teams-left">Teams Left: ${teamsLeft}</div>
                         <ul class="team-list">
