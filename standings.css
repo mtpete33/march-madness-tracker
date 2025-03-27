@@ -46,7 +46,7 @@ a:hover {
 .draft-position {
     color: #666;
     font-size: 0.9em;
-    margin: 5px 0;
+    margin: 0 0;
 }
 
 .player-card h2 {
@@ -65,7 +65,7 @@ a:hover {
 .teams-left {
     color: #28a745;
     font-size: 20px;
-    margin-top: -10px;
+    margin: -10px 0 5px 0;
 }
 
 .win-status {

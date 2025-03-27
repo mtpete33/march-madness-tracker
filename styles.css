@@ -23,7 +23,7 @@ h1 {
 .spinning-ball {
   width: 40px;
   height: 40px;
-  animation: spin 2s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 @keyframes spin {

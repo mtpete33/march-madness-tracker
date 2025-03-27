@@ -180,9 +180,10 @@ $(document).ready(function() {
                 const playerCard = $(`
                     <div class="player-card">
                         <h2>${member.name}</h2>
-                        <div class="draft-position">Draft Position: ${member.draft_position}</div>
+                        
                         <div class="points">Total Points: ${member.points}</div>
                         <div class="teams-left">Teams Left: ${teamsLeft}</div>
+                        <div class="draft-position">Draft Position: ${member.draft_position}</div>
                         <ul class="team-list">
                             ${member.teams.map(team => {
                                 const isEliminated = eliminatedTeams.has(team);
@@ -198,7 +199,9 @@ $(document).ready(function() {
                                 return `<li class="${isEliminated ? 'eliminated' : ''}">${team} <span class="win-status">${winStatus}</span></li>`;
                             }).join('')}
                         </ul>
+                        
                     </div>
+                    
                 `);
                 container.append(playerCard);
             });
