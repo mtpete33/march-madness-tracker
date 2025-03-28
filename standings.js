@@ -32,7 +32,7 @@ $(document).ready(function() {
                     if (!gameData.game) return;
                     const game = gameData.game;
 
-                    if (game.finalMessage === "FINAL" && game.home && game.away) {
+                    if ((game.finalMessage === "FINAL" || game.finalMessage === "FINAL (OT)") && game.home && game.away) {
                         const homeScore = parseInt(game.home.score);
                         const awayScore = parseInt(game.away.score);
                         const homeSeed = parseInt(game.home.seed);
