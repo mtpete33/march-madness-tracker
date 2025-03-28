@@ -64,7 +64,7 @@ $(document).ready(function() {
                             let existingWins = teamWins.get(winningTeam) || [];
                             existingWins.push({ round, points });
                             teamWins.set(winningTeam, existingWins);
-                            console.log(`${winningTeam} won, earned ${points} points in ${round}`);
+                            
                         }
                     }
                 });
@@ -75,12 +75,7 @@ $(document).ready(function() {
 
     function calculatePlayerPoints(teams) {
         let total = 0;
-        console.log("Calculating points for teams:", teams);
         teams.forEach(team => {
-            console.log(`Checking team ${team}:`, {
-                hasWins: teamWins.has(team),
-                winData: teamWins.get(team)
-            });
             if (teamWins.has(team)) {
                 const winData = teamWins.get(team);
                 let points = 0;
@@ -90,10 +85,10 @@ $(document).ready(function() {
                     points = winData.points;
                 }
                 total += points;
-                console.log(`Adding ${points} points for ${team}`);
+                
             }
         });
-        console.log("Total points calculated:", total);
+        
         return total;
     }
 

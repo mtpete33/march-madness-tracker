@@ -37,24 +37,24 @@ app.get("/scoreboard", async (req, res) => {
 
         // If First Four is selected, fetch games from March 19 and 20
         if (selectedRound === "First Four") {
-            console.log("Fetching First Four games...");
+            // console.log("Fetching First Four games...");
             const firstFourDates = ['19', '20'];
             for (const day of firstFourDates) {
                 try {
                     const url = `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/2024/03/${day}/scoreboard.json`;
-                    console.log(`Fetching from URL: ${url}`);
+                    // console.log(`Fetching from URL: ${url}`);
                     const response = await fetch(url);
                     const data = await response.json();
-                    console.log(`Data received for March ${day}:`, data);
+                    // console.log(`Data received for March ${day}:`, data);
                     if (data.games) {
-                        console.log(`Found ${data.games.length} games for March ${day}`);
+                        // console.log(`Found ${data.games.length} games for March ${day}`);
                         allGames = [...allGames, ...data.games];
                     }
                 } catch (error) {
                     console.error(`Error fetching First Four games for March ${day}:`, error);
                 }
             }
-            console.log("Total First Four games found:", allGames.length);
+            // console.log("Total First Four games found:", allGames.length);
         } else {
             // For other rounds, use our date range
             allGames = [];

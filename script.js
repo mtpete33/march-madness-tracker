@@ -19,7 +19,7 @@ $(document).ready(function () {
 
         // Normalize the team name for comparison
         const normalizeTeam = (name) => {
-            console.log('Normalizing team name:', name);
+            // console.log('Normalizing team name:', name);
             if (!name) return '';
             let normalized = name.toUpperCase()
                       .replace('UNIVERSITY OF ', '')
@@ -28,19 +28,19 @@ $(document).ready(function () {
                       .replace('NORTH CAROLINA', 'UNC')
                       .replace(/[^A-Z]/g, '')
                       .trim();
-            console.log('Normalized to:', normalized);
+            // console.log('Normalized to:', normalized);
             return normalized;
         };
 
         const normalizedSearch = normalizeTeam(teamName);
-        console.log('Looking for team:', teamName);
-        console.log('Normalized search term:', normalizedSearch);
-        console.log('Available teams:', Object.keys(teamOwners));
+        // console.log('Looking for team:', teamName);
+        // console.log('Normalized search term:', normalizedSearch);
+        // console.log('Available teams:', Object.keys(teamOwners));
 
         // Look for a match in normalized team names
         for (const [team, owner] of Object.entries(teamOwners)) {
             const normalizedTeam = normalizeTeam(team);
-            console.log(`Comparing '${normalizedSearch}' with '${normalizedTeam}'`);
+            // console.log(`Comparing '${normalizedSearch}' with '${normalizedTeam}'`);
             if (normalizedTeam === normalizedSearch) {
                 return owner;
             }
@@ -50,13 +50,13 @@ $(document).ready(function () {
     }
 
     function fetchGames() {
-        console.log("Fetching games...");
+        // console.log("Fetching games...");
         $("#games-container").html('<div class="loading-container"><p>Loading games...</p><img src="images/bball.png" alt="Loading..."></div>');
         const selectedRound = $("#roundSelector").val();
-        console.log("Selected round:", selectedRound);
+        // console.log("Selected round:", selectedRound);
 
         $.get("/scoreboard", { round: selectedRound }, function (data) {
-            console.log("Received data:", data);
+            // console.log("Received data:", data);
             $("#games-container").empty();
 
             let allGames = data.games || [];
