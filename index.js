@@ -242,6 +242,19 @@ app.get("/scoreboard", async (req, res) => {
                     }
                 }];
             }
+        } else if (selectedRound === "Elite Eight") {
+            // Filter for Elite Eight games
+            allGames = allGames.filter(game => game.game.bracketRound === "Elite Eight");
+            if (allGames.length === 0) {
+                allGames = [{
+                    game: {
+                        bracketRound: "Elite Eight",
+                        home: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        away: { names: { char6: "TBD" }, seed: "--", score: "" },
+                        startTime: "TBD"
+                    }
+                }];
+            }
         } else if (selectedRound !== "First Round") {
             allGames = [{
                 game: {
