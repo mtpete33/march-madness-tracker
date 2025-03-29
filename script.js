@@ -77,6 +77,18 @@ $(document).ready(function () {
             } else if (selectedRound === "First Four") {
                 //Handle First Four separately if needed (e.g., different API endpoint)
                 // ... (Existing First Four logic if any) ...
+            } else if (selectedRound === "Elite Eight") {
+                // Keep any existing Elite Eight games
+                if (allGames.length === 0) {
+                    allGames = [{
+                        game: {
+                            bracketRound: "Elite Eight",
+                            home: { names: { char6: "TBD" }, seed: "--", score: "" },
+                            away: { names: { char6: "TBD" }, seed: "--", score: "" },
+                            startTime: "TBD"
+                        }
+                    }];
+                }
             }
 
 
