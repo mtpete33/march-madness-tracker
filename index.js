@@ -245,11 +245,16 @@ app.get("/scoreboard", async (req, res) => {
         } else if (selectedRound === "Elite Eight") {
             // Filter for Elite Eight games
             console.log("Before filter - All games:", allGames);
+            console.log("All games bracketRounds:", allGames.map(game => game.game.bracketRound));
+            
             allGames = allGames.filter(game => {
-                const round = game.game.bracketRound.replace('®', '').trim();
-                return round === "Elite Eight" || 
-                       round === "Elite 8" ||
-                       round.includes("Elite Eight");
+                const round = game.game.bracketRound?.replace('®', '').trim() || '';
+                console.log("Checking round:", round);
+                const isMatch = round === "Elite Eight" || 
+                              round === "Elite 8" ||
+                              round.includes("Elite Eight");
+                console.log("Is match?", isMatch);
+                return isMatch;
             });
             console.log("After filter - Elite Eight games:", allGames);
             if (allGames.length === 0) {

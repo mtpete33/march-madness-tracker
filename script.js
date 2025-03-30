@@ -56,7 +56,7 @@ $(document).ready(function () {
         // console.log("Selected round:", selectedRound);
 
         $.get("/scoreboard", { round: selectedRound }, function (data) {
-            // console.log("Received data:", data);
+            console.log("Client received data:", data);
             $("#games-container").empty();
 
             let allGames = data.games || [];
