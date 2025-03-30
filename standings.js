@@ -19,11 +19,12 @@ $(document).ready(function() {
         eliminatedTeams.clear();
         teamWins.clear();
 
-        // Fetch First Round, Second Round, and Sweet 16 games
+        // Fetch First Round through Elite Eight games
         Promise.all([
             $.get("/scoreboard", { round: "First Round" }),
             $.get("/scoreboard", { round: "Second Round" }),
-            $.get("/scoreboard", { round: "Sweet 16" })
+            $.get("/scoreboard", { round: "Sweet 16" }),
+            $.get("/scoreboard", { round: "Elite Eight" })
         ]).then(data => {
             data.forEach(roundData => {
                 if (!roundData || !roundData.games) return;
