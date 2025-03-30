@@ -245,18 +245,17 @@ app.get("/scoreboard", async (req, res) => {
         } else if (selectedRound === "Elite Eight") {
             // Filter for Elite Eight games
             console.log("Before filter - All games:", allGames);
-            console.log("All games bracketRounds:", allGames.map(game => game.game.bracketRound));
-            
-            // Log all games and their rounds before filtering
-            console.log("Available games and rounds:", allGames.map(game => ({
-                round: game.game.bracketRound,
-                teams: `${game.game.away?.names?.short || 'TBD'} vs ${game.game.home?.names?.short || 'TBD'}`
-            })));
             
             allGames = allGames.filter(game => {
-                const round = (game.game.bracketRound || '').toLowerCase().replace('®', '').trim();
-                return round.includes('elite') || round.includes('regional');
+                if (!game.game.bracketRound) return false;
+                const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
+                return round.includes('elite') || 
+                       round.includes('regional') || 
+                       round.includes('region');
             });
+            
+            console.log("After filter - Games found:", allGames.length);
+            console.log("Filtered games:", allGames);
             console.log("After filter - Elite Eight games:", allGames);
             if (allGames.length === 0) {
                 allGames = [{
