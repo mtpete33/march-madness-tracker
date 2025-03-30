@@ -247,14 +247,15 @@ app.get("/scoreboard", async (req, res) => {
             console.log("Before filter - All games:", allGames);
             console.log("All games bracketRounds:", allGames.map(game => game.game.bracketRound));
             
+            // Log all games and their rounds before filtering
+            console.log("Available games and rounds:", allGames.map(game => ({
+                round: game.game.bracketRound,
+                teams: `${game.game.away?.names?.short || 'TBD'} vs ${game.game.home?.names?.short || 'TBD'}`
+            })));
+            
             allGames = allGames.filter(game => {
-                const round = game.game.bracketRound?.replace('®', '').trim() || '';
-                console.log("Checking round:", round);
-                const isMatch = round === "Elite Eight" || 
-                              round === "Elite 8" ||
-                              round.includes("Elite Eight");
-                console.log("Is match?", isMatch);
-                return isMatch;
+                const round = (game.game.bracketRound || '').toLowerCase().replace('®', '').trim();
+                return round.includes('elite') || round.includes('regional');
             });
             console.log("After filter - Elite Eight games:", allGames);
             if (allGames.length === 0) {
