@@ -82,7 +82,7 @@ $(document).ready(function () {
                 if (allGames.length === 0) {
                     allGames = [{
                         game: {
-                            bracketRound: "Elite Eight",
+                            bracketRound: "Elite 8",
                             home: { names: { char6: "TBD" }, seed: "--", score: "" },
                             away: { names: { char6: "TBD" }, seed: "--", score: "" },
                             startTime: "TBD"
