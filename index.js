@@ -247,7 +247,9 @@ app.get("/scoreboard", async (req, res) => {
             console.log("Before filter - All games:", allGames);
             allGames = allGames.filter(game => 
                 game.game.bracketRound === "Elite Eight" || 
-                game.game.bracketRound === "Elite 8"
+                game.game.bracketRound === "Elite 8" ||
+                game.game.bracketRound === "Elite Eight®" ||
+                game.game.bracketRound.includes("Elite Eight")
             );
             console.log("After filter - Elite Eight games:", allGames);
             if (allGames.length === 0) {
