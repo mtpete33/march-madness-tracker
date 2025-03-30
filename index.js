@@ -244,7 +244,12 @@ app.get("/scoreboard", async (req, res) => {
             }
         } else if (selectedRound === "Elite Eight") {
             // Filter for Elite Eight games
-            allGames = allGames.filter(game => game.game.bracketRound === "Elite Eight");
+            console.log("Before filter - All games:", allGames);
+            allGames = allGames.filter(game => 
+                game.game.bracketRound === "Elite Eight" || 
+                game.game.bracketRound === "Elite 8"
+            );
+            console.log("After filter - Elite Eight games:", allGames);
             if (allGames.length === 0) {
                 allGames = [{
                     game: {
