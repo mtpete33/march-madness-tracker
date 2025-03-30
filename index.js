@@ -25,10 +25,10 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
         const startDate = new Date(2025, 2, 19); // March 19th, 2025
-        const endDate = new Date(2025, 2, 28);   // March 28th, 2025 (to include Sweet 16)
+        const endDate = new Date(2025, 2, 30);   // March 30th, 2025 (to include Elite Eight)
         const dates = [];
 
-        // Generate array of dates from March 19th to March 28th
+        // Generate array of dates from March 19th to March 30th
         for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
             dates.push(new Date(d));
         }
