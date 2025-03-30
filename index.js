@@ -21,7 +21,7 @@ app.post('/updateDraft', async (req, res) => {
 });
 
 // Endpoint to get live NCAA scoreboard
-app.get("/scoreboard", async (req, res) => {
+app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
         const startDate = new Date(2025, 2, 19); // March 19th, 2025
@@ -267,7 +267,8 @@ app.get("/scoreboard", async (req, res) => {
 
         res.json({ games: allGames });
     } catch (error) {
-        res.status(500).json({ error: "Failed to fetch scoreboard" });
+        console.error("Error fetching scoreboard:", error);
+        res.status(500).json({ error: "Failed to fetch scoreboard", details: error.message });
     }
 });
 
