@@ -79,10 +79,12 @@ $(document).ready(function () {
                 // ... (Existing First Four logic if any) ...
             } else if (selectedRound === "Elite Eight") {
                 // Keep any existing Elite Eight games or games labeled as "Elite 8"
-                allGames = allGames.filter(game => 
-                    game.game.bracketRound === "Elite Eight" || 
-                    game.game.bracketRound === "Elite 8"
-                );
+                allGames = allGames.filter(game => {
+                    const round = game.game.bracketRound.replace('®', '').trim();
+                    return round === "Elite Eight" || 
+                           round === "Elite 8" ||
+                           round.includes("Elite Eight");
+                });
                 if (allGames.length === 0) {
                     allGames = [{
                         game: {
