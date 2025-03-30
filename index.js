@@ -27,7 +27,7 @@ app.get("/scoreboard", async (req, res) => {
         const startDate = new Date(2025, 2, 19); // March 19th, 2025
         const endDate = new Date(2025, 2, 28);   // March 28th, 2025 (to include Sweet 16)
         const dates = [];
-        
+
         // Generate array of dates from March 19th to March 28th
         for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
             dates.push(new Date(d));
@@ -243,30 +243,17 @@ app.get("/scoreboard", async (req, res) => {
                 }];
             }
         } else if (selectedRound === "Elite Eight") {
-            // Filter for Elite Eight games
-            console.log("Before filter - All games:", allGames);
-            
-            allGames = allGames.filter(game => {
-                if (!game.game.bracketRound) return false;
-                const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
-                return round.includes('elite') || 
-                       round.includes('regional') || 
-                       round.includes('region');
-            });
-            
-            console.log("After filter - Games found:", allGames.length);
-            console.log("Filtered games:", allGames);
-            console.log("After filter - Elite Eight games:", allGames);
-            if (allGames.length === 0) {
-                allGames = [{
-                    game: {
-                        bracketRound: "Elite Eight",
-                        home: { names: { char6: "TBD" }, seed: "--", score: "" },
-                        away: { names: { char6: "TBD" }, seed: "--", score: "" },
-                        startTime: "TBD"
-                    }
-                }];
-            }
+                console.log("Raw games data:", JSON.stringify(allGames, null, 2));
+
+                allGames = allGames.filter(game => {
+                    if (!game.game || !game.game.bracketRound) return false;
+                    const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
+                    console.log("Checking round:", round);
+                    return round.includes('elite') || 
+                           round.includes('8') ||
+                           round.includes('regional') || 
+                           round.includes('region');
+                });
         } else if (selectedRound !== "First Round") {
             allGames = [{
                 game: {
