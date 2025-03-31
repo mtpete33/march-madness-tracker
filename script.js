@@ -61,8 +61,17 @@ $(document).ready(function () {
 
             let allGames = data.games || [];
 
-            //Keep the filtered games from the NCAA API for the selected round
-            allGames = allGames.filter(game => game.game.bracketRound === selectedRound);
+            // Handle Final Four games
+            if (selectedRound === "Final Four") {
+                allGames = allGames.filter(game => {
+                    const round = game.game.bracketRound.toUpperCase().replace('®', '').trim();
+                    return round.includes('FINAL FOUR') ||
+                           round.includes('FINAL 4') ||
+                           round.includes('SEMIFINAL');
+                });
+            } else {
+                allGames = allGames.filter(game => game.game.bracketRound === selectedRound);
+            }
 
             //If no games found, show TBD placeholder
             if (allGames.length === 0 && selectedRound !== "First Four") {
