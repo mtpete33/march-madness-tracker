@@ -282,8 +282,10 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                         if (data.games) {
                             const finalFourGames = data.games.filter(game => {
                                 if (!game.game || !game.game.bracketRound) return false;
-                                const round = game.game.bracketRound.toUpperCase().trim();
-                                return round === "FINAL FOUR";
+                                const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
+                                return round.includes('final four') ||
+                                       round.includes('final 4') ||
+                                       round.includes('semifinal');
                             });
                             allGames = [...allGames, ...finalFourGames];
                         }
