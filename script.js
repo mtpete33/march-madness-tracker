@@ -1,3 +1,24 @@
+function convertToMountainTime(etTime) {
+    if (!etTime || etTime === "TBD") return etTime;
+    
+    const [time, period] = etTime.split(' ');
+    let [hours, minutes] = time.split(':');
+    hours = parseInt(hours);
+    
+    // Convert to MT (subtract 2 hours from ET)
+    let mtHours = hours - 2;
+    
+    // Handle period crossing
+    let etPeriod = period;
+    let mtPeriod = period;
+    if (mtHours <= 0) {
+        mtHours += 12;
+        mtPeriod = period === "PM" ? "AM" : "PM";
+    }
+    
+    return `${hours}:${minutes} ${etPeriod}/${mtHours}:${minutes} ${mtPeriod}`;
+}
+
 $(document).ready(function () {
     // Sample data (replace with actual data loading from draft.json)
     let teamOwners = {};
@@ -139,7 +160,7 @@ $(document).ready(function () {
                                 gameData.finalMessage === "FINAL" ? "FINAL" : 
                                 (gameData.gameState === "live" && gameData.contestClock === ":00" ? "HALFTIME" :
                                 (gameData.contestClock ? `${gameData.currentPeriod} - ${gameData.contestClock}` : 
-                                gameData.finalMessage || gameData.startTime))
+                                gameData.finalMessage || convertToMountainTime(gameData.startTime)))
                             }</strong></p>
                         </div>
                     `;
