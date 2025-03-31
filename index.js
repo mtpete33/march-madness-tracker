@@ -25,10 +25,13 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
         const startDate = new Date(2025, 2, 19); // March 19th, 2025
-        const endDate = new Date(2025, 3, 5);    // April 5th, 2025 (to include Final Four)
+        const endDate = new Date(2025, 2, 30);   // March 30th, 2025
+        
+        // Add Final Four dates
+        const finalFourDates = [new Date(2025, 3, 5)]; // April 5th, 2025
         const dates = [];
 
-        // Generate array of dates from March 19th to March 30th
+        // Generate array of dates for early rounds
         for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
             dates.push(new Date(d));
         }
@@ -59,7 +62,9 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
             // For other rounds, use our date range
             allGames = [];
 
-            for (const date of dates) {
+            const datesToCheck = selectedRound === "Final Four" ? finalFourDates : dates;
+            
+            for (const date of datesToCheck) {
                 const year = date.getFullYear();
                 const month = String(date.getMonth() + 1).padStart(2, '0');
                 const day = String(date.getDate()).padStart(2, '0');
