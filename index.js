@@ -263,23 +263,47 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                            round.includes('region');
                 });
         } else if (selectedRound === "Final Four") {
-                allGames = allGames.filter(game => {
-                    if (!game.game || !game.game.bracketRound) return false;
-                    const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
-                    return round.includes('final four') || 
-                           round.includes('semifinal') ||
-                           round.includes('national semifinal');
-                });
+                // For Final Four, specifically check April 5-7
+                const finalFourDate = new Date(2025, 3, 5); // April 5th
+                const championshipDate = new Date(2025, 3, 7); // April 7th
                 
-                // If no Final Four games found, show placeholder
+                allGames = [];
+                const dates = [finalFourDate, championshipDate];
+                
+                for (const date of dates) {
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    try {
+                        const response = await fetch(
+                            `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/2025/${month}/${day}/scoreboard.json`
+                        );
+                        if (!response.ok) continue;
+                        const data = await response.json();
+                        if (data.games) {
+                            const finalFourGames = data.games.filter(game => {
+                                if (!game.game || !game.game.bracketRound) return false;
+                                const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
+                                return round.includes('final four') || 
+                                       round.includes('semifinal') ||
+                                       round.includes('national semifinal');
+                            });
+                            allGames = [...allGames, ...finalFourGames];
+                        }
+                    } catch (error) {
+                        console.error(`Error fetching Final Four games for ${month}/${day}:`, error);
+                    }
+                }
+                
+                // If no Final Four games found, show placeholder with correct date
                 if (allGames.length === 0) {
                     allGames = [{
                         game: {
                             bracketRound: "Final Four",
                             home: { names: { char6: "TBD" }, seed: "--", score: "" },
                             away: { names: { char6: "TBD" }, seed: "--", score: "" },
-                            startTime: "April 5, 2025",
-                            network: "CBS/TBS"
+                            startTime: "April 5, 2025 6:09 PM ET",
+                            network: "CBS/TBS",
+                            startDate: "04-05-2025"
                         }
                     }];
                 }
