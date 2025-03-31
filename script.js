@@ -16,7 +16,7 @@ function convertToMountainTime(etTime) {
         mtPeriod = period === "PM" ? "AM" : "PM";
     }
     
-    return `${hours}:${minutes} ${etPeriod}/${mtHours}:${minutes} ${mtPeriod}`;
+    return `${hours}:${minutes} ET/${mtHours}:${minutes} MT`;
 }
 
 $(document).ready(function () {
