@@ -47,7 +47,7 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
             const firstFourDates = ['19', '20'];
             for (const day of firstFourDates) {
                 try {
-                    const url = `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/2024/03/${day}/scoreboard.json`;
+                    const url = `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/2025/03/${day}/scoreboard.json`;
                     // console.log(`Fetching from URL: ${url}`);
                     const response = await fetch(url);
                     const data = await response.json();
