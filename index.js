@@ -25,7 +25,7 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
     try {
         const selectedRound = req.query.round || "First Round";
         const startDate = new Date(2025, 2, 19); // March 19th, 2025
-        const endDate = new Date(2025, 2, 30);   // March 30th, 2025 (to include Elite Eight)
+        const endDate = new Date(2025, 3, 5);    // April 5th, 2025 (to include Final Four)
         const dates = [];
 
         // Generate array of dates from March 19th to March 30th
@@ -253,6 +253,13 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                            round.includes('8') ||
                            round.includes('regional') || 
                            round.includes('region');
+                });
+        } else if (selectedRound === "Final Four") {
+                allGames = allGames.filter(game => {
+                    if (!game.game || !game.game.bracketRound) return false;
+                    const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
+                    return round.includes('final four') || 
+                           round.includes('semifinal');
                 });
         } else if (selectedRound !== "First Round") {
             allGames = [{
