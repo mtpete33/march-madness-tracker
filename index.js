@@ -27,8 +27,11 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
         const startDate = new Date(2025, 2, 19); // March 19th, 2025
         const endDate = new Date(2025, 2, 30);   // March 30th, 2025
         
-        // Add Final Four dates
-        const finalFourDates = [new Date(2025, 3, 5)]; // April 5th, 2025
+        // Add Final Four and Championship dates
+        const finalFourDates = [
+            new Date(2025, 3, 5), // April 5th - Final Four
+            new Date(2025, 3, 7)  // April 7th - Championship
+        ];
         const dates = [];
 
         // Generate array of dates for early rounds
@@ -264,8 +267,22 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                     if (!game.game || !game.game.bracketRound) return false;
                     const round = game.game.bracketRound.toLowerCase().replace('®', '').trim();
                     return round.includes('final four') || 
-                           round.includes('semifinal');
+                           round.includes('semifinal') ||
+                           round.includes('national semifinal');
                 });
+                
+                // If no Final Four games found, show placeholder
+                if (allGames.length === 0) {
+                    allGames = [{
+                        game: {
+                            bracketRound: "Final Four",
+                            home: { names: { char6: "TBD" }, seed: "--", score: "" },
+                            away: { names: { char6: "TBD" }, seed: "--", score: "" },
+                            startTime: "April 5, 2025",
+                            network: "CBS/TBS"
+                        }
+                    }];
+                }
         } else if (selectedRound !== "First Round") {
             allGames = [{
                 game: {
