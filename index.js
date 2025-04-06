@@ -28,10 +28,8 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
         const endDate = new Date(2025, 2, 30);   // March 30th, 2025
         
         // Add Final Four and Championship dates
-        const finalFourDates = [
-            new Date(2025, 3, 5), // April 5th - Final Four
-            new Date(2025, 3, 7)  // April 7th - Championship
-        ];
+        const finalFourDates = [new Date(2025, 3, 5)]; // April 5th - Final Four
+        const championshipDate = new Date(2025, 3, 7);  // April 7th - Championship
         const dates = [];
 
         // Generate array of dates for early rounds
@@ -263,12 +261,33 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                            round.includes('region');
                 });
         } else if (selectedRound === "Final Four") {
-                // For Final Four, specifically check April 5-7
-                const finalFourDate = new Date(2025, 3, 5); // April 5th
-                const championshipDate = new Date(2025, 3, 7); // April 7th
-                
+                // For Final Four, specifically check April 5th
                 allGames = [];
-                const dates = [finalFourDate, championshipDate];
+                const dates = finalFourDates;
+                
+            } else if (selectedRound === "National Championship") {
+                // For Championship game, check April 7th
+                allGames = [{
+                    game: {
+                        gameID: "2640601",
+                        bracketRound: "National Championship",
+                        startTime: "6:50 PM ET",
+                        startDate: "04-07-2025",
+                        network: "CBS",
+                        home: {
+                            names: { char6: "HOU", short: "Houston", full: "University of Houston" },
+                            seed: "1",
+                            score: "",
+                            description: "(35-4)"
+                        },
+                        away: {
+                            names: { char6: "FLA", short: "Florida", full: "University of Florida" },
+                            seed: "1",
+                            score: "",
+                            description: "(34-4)"
+                        }
+                    }
+                }];
                 
                 for (const date of dates) {
                     const month = String(date.getMonth() + 1).padStart(2, '0');
