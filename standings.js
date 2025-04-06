@@ -63,11 +63,12 @@ $(document).ready(function() {
 
                         if (winningTeam) {
                             eliminatedTeams.add(losingTeam);
-                            let points = roundPoints[round] + upsetPoints;
+                            // Normalize round name to match roundPoints keys
+                            const normalizedRound = round === "FINAL FOUR" ? "Final Four" : round;
+                            let points = roundPoints[normalizedRound] + upsetPoints;
                             let existingWins = teamWins.get(winningTeam) || [];
-                            existingWins.push({ round, points });
+                            existingWins.push({ round: normalizedRound, points });
                             teamWins.set(winningTeam, existingWins);
-                            
                         }
                     }
                 });
