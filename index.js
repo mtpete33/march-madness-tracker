@@ -262,9 +262,28 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                 });
         } else if (selectedRound === "Final Four") {
                 // For Final Four, specifically check April 5th
-                allGames = [];
-                const dates = finalFourDates;
-                
+                for (const date of finalFourDates) {
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    try {
+                        const response = await fetch(
+                            `https://data.ncaa.com/casablanca/scoreboard/basketball-men/d1/2025/${month}/${day}/scoreboard.json`
+                        );
+                        if (!response.ok) continue;
+                        const data = await response.json();
+                        if (data.games) {
+                            const finalFourGames = data.games.filter(game => {
+                                const round = game.game.bracketRound.toUpperCase().replace('®', '').trim();
+                                return round.includes('FINAL FOUR') ||
+                                       round.includes('FINAL 4') ||
+                                       round.includes('SEMIFINAL');
+                            });
+                            allGames = [...allGames, ...finalFourGames];
+                        }
+                    } catch (error) {
+                        console.error(`Error fetching Final Four games for ${month}/${day}:`, error);
+                    }
+                }
             } else if (selectedRound === "National Championship") {
                 // For Championship game, check April 7th
                 allGames = [{
