@@ -24,7 +24,9 @@ $(document).ready(function() {
             $.get("/scoreboard", { round: "First Round" }),
             $.get("/scoreboard", { round: "Second Round" }),
             $.get("/scoreboard", { round: "Sweet 16" }),
-            $.get("/scoreboard", { round: "Elite Eight" })
+            $.get("/scoreboard", { round: "Elite Eight" }),
+            $.get("/scoreboard", { round: "Final Four" }),
+            $.get("/scoreboard", { round: "National Championship" })
         ]).then(data => {
             data.forEach(roundData => {
                 if (!roundData || !roundData.games) return;
