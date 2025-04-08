@@ -12,8 +12,8 @@ $(document).ready(function() {
 
     // Fetch all completed games to build eliminated teams list and track wins
     function fetchAllCompletedGames() {
-        const rounds = ["First Four", "First Round", "Second Round", "Sweet 16", "Elite Eight", "Final Four", "National Championship"];
-        const processedGames = new Set();
+        // const rounds = ["First Four", "First Round", "Second Round", "Sweet 16", "Elite Eight", "Final Four", "National Championship"];
+        // const processedGames = new Set();
 
         // Reset game tracking
         eliminatedTeams.clear();
