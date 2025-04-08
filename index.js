@@ -297,13 +297,13 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                         home: {
                             names: { char6: "HOU", short: "Houston", full: "University of Houston" },
                             seed: "1",
-                            score: "89",
+                            score: "63",
                             description: "(35-4)"
                         },
                         away: {
                             names: { char6: "FLA", short: "Florida", full: "University of Florida" },
                             seed: "1",
-                            score: "77",
+                            score: "65",
                             description: "(34-4)"
                         }
                     }
