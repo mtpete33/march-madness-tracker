@@ -1,6 +1,8 @@
 function convertToMountainTime(etTime) {
     if (!etTime || etTime === "TBD") return etTime;
     
+    if (etTime.includes("MT")) return etTime;
+    
     const [time, period] = etTime.split(' ');
     let [hours, minutes] = time.split(':');
     hours = parseInt(hours);
@@ -9,14 +11,13 @@ function convertToMountainTime(etTime) {
     let mtHours = hours - 2;
     
     // Handle period crossing
-    let etPeriod = period;
     let mtPeriod = period;
     if (mtHours <= 0) {
         mtHours += 12;
         mtPeriod = period === "PM" ? "AM" : "PM";
     }
     
-    return `${hours}:${minutes} ET/${mtHours}:${minutes} MT`;
+    return `${mtHours}:${minutes}${mtPeriod} MT`;
 }
 
 $(document).ready(function () {
