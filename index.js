@@ -290,7 +290,7 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                     game: {
                         gameID: "2640601",
                         bracketRound: "National Championship",
-                        startTime: "6:50 PM MT",
+                        startTime: "6:50PM MT",
                         startDate: "04-07-2025",
                         network: "CBS",
                         home: {
