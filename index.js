@@ -293,16 +293,17 @@ app.get(["/scoreboard", "/test-ncaa"], async (req, res) => {
                         startTime: "6:50PM MT",
                         startDate: "04-07-2025",
                         network: "CBS",
+                        finalMessage: "FINAL",
                         home: {
                             names: { char6: "HOU", short: "Houston", full: "University of Houston" },
                             seed: "1",
-                            score: "",
+                            score: "89",
                             description: "(35-4)"
                         },
                         away: {
                             names: { char6: "FLA", short: "Florida", full: "University of Florida" },
                             seed: "1",
-                            score: "",
+                            score: "77",
                             description: "(34-4)"
                         }
                     }
